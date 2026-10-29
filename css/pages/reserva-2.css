@@ -1,0 +1,53 @@
+/* =====================================================================
+   PÁGINA · 08 RESERVA · PASO 2 DATOS DEL VISITANTE
+   Formulario de datos, validación en vivo, botón habilitado condicionalmente
+   y resumen persistente.
+   Todo utiliza exclusivamente variables definidas en css/tokens.css.
+   ===================================================================== */
+@import './reserva-1.css';
+
+.visitor-form-card {
+  padding: var(--sp-6);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--r-md);
+}
+
+.visitor-form-header {
+  margin-bottom: var(--sp-4);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.visitor-form-header .back-link {
+  margin-bottom: var(--sp-2);
+}
+
+.autofill-action-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--sp-4);
+}
+
+.visitor-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+}
+
+@media (max-width: 767px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: var(--sp-3);
+  }
+
+  .visitor-form-card {
+    padding: var(--sp-5);
+  }
+}

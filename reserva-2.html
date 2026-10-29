@@ -1,0 +1,192 @@
+<!doctype html>
+<!-- =====================================================================
+  YANASARA TERMALES · Pantalla 08: Reserva · Paso 2 Datos del Visitante
+  Formulario con nombres, apellidos, tipo y número de documento, correo, celular,
+  casilla de aceptación, validación en vivo y botón Volver sin perder datos.
+  ===================================================================== -->
+<html lang="es" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paso 2: Datos del Visitante · Reserva · YANASARA TERMALES</title>
+  <meta name="description" content="Paso 2 de reserva: ingresa tus datos de contacto para completar la experiencia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/reserva-2.css">
+</head>
+<body data-page="reserva-2">
+  <div id="site-header" data-component="header"></div>
+
+  <main id="contenido">
+    <!-- Encabezado con Stepper -->
+    <header class="section section--tight reserva-header">
+      <div class="container">
+        <ol class="steps" aria-label="Progreso del proceso de reserva">
+          <li class="steps__item is-done">
+            <span class="steps__dot">
+              <span class="steps__num">1</span>
+              <svg class="steps__check" viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+            </span>
+            <span class="steps__label">Experiencia y fecha</span>
+          </li>
+          <li class="steps__item is-current" aria-current="step">
+            <span class="steps__dot">
+              <span class="steps__num">2</span>
+              <svg class="steps__check" viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+            </span>
+            <span class="steps__label">Datos del visitante</span>
+          </li>
+          <li class="steps__item">
+            <span class="steps__dot">
+              <span class="steps__num">3</span>
+              <svg class="steps__check" viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+            </span>
+            <span class="steps__label">Confirmación</span>
+          </li>
+        </ol>
+      </div>
+    </header>
+
+    <!-- Contenido del Paso 2 -->
+    <section class="section section--tight reserva-step-section">
+      <div class="container reserva-step-layout">
+        <!-- Columna Principal: Formulario de Datos -->
+        <div class="reserva-step-main">
+          <div class="card visitor-form-card reveal">
+            <div class="visitor-form-header">
+              <a href="reserva-1.html" class="back-link" id="btn-back-step1">
+                <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13 5 8l5-5"/></svg>
+                Volver al Paso 1 (sin perder datos)
+              </a>
+              <h2 style="font-size: var(--fs-h3); margin-top: var(--sp-2); margin-bottom: var(--sp-1);">
+                Información del Visitante Principal
+              </h2>
+              <p class="muted small" style="margin: 0;">
+                Ingresa los datos para emitir el código de confirmación de tu reserva demostrativa.
+              </p>
+            </div>
+
+            <div class="autofill-action-bar">
+              <button type="button" class="btn btn--outline btn--sm" id="btn-autofill-visitor">
+                Autocompletar datos de ejemplo
+              </button>
+            </div>
+
+            <form id="visitor-form" class="visitor-form" novalidate>
+              <div class="form-row">
+                <!-- Nombres -->
+                <div class="field" id="field-nombres">
+                  <label class="field__label" for="visitor-nombres">Nombres <span class="req">*</span></label>
+                  <input type="text" id="visitor-nombres" class="input" placeholder="Valeria" required>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+
+                <!-- Apellidos -->
+                <div class="field" id="field-apellidos">
+                  <label class="field__label" for="visitor-apellidos">Apellidos <span class="req">*</span></label>
+                  <input type="text" id="visitor-apellidos" class="input" placeholder="Rojas" required>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <!-- Tipo de documento -->
+                <div class="field" id="field-tipodoc">
+                  <label class="field__label" for="visitor-tipodoc">Tipo de documento</label>
+                  <select id="visitor-tipodoc" class="select">
+                    <option value="DNI" selected>DNI</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                    <option value="CE">Carné de Extranjería</option>
+                  </select>
+                </div>
+
+                <!-- Número de documento -->
+                <div class="field" id="field-numdoc">
+                  <label class="field__label" for="visitor-numdoc">Número de documento <span class="req">*</span></label>
+                  <input type="text" id="visitor-numdoc" class="input" placeholder="74829163" maxlength="12" required>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <!-- Correo electrónico -->
+                <div class="field" id="field-correo">
+                  <label class="field__label" for="visitor-correo">Correo electrónico <span class="req">*</span></label>
+                  <input type="email" id="visitor-correo" class="input" placeholder="valeria.rojas@example.com" required>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+
+                <!-- Celular -->
+                <div class="field" id="field-celular">
+                  <label class="field__label" for="visitor-celular">Teléfono celular <span class="req">*</span></label>
+                  <input type="tel" id="visitor-celular" class="input" placeholder="999123456" maxlength="9" required>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <!-- Casilla de aceptación -->
+              <div class="field" id="field-terminos" style="margin-top: var(--sp-2);">
+                <label class="check">
+                  <input type="checkbox" id="visitor-terms" required>
+                  <span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+                  <span class="check__label">
+                    Acepto las condiciones referenciales de la visita y declaro que los datos ingresados son para fines demostrativos. <span class="req">*</span>
+                  </span>
+                </label>
+                <span class="field__error" aria-live="polite"></span>
+              </div>
+
+              <div class="form-actions" style="margin-top: var(--sp-5);">
+                <button type="submit" class="btn btn--primary btn--block" id="btn-confirm-step" disabled>
+                  Confirmar ejemplo y finalizar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Columna Lateral: Resumen de Experiencia -->
+        <aside class="reserva-step-sidebar">
+          <div class="card summary-experience-card reveal">
+            <h2 class="summary-experience-title">Tu experiencia</h2>
+
+            <div class="summary-experience-lines" id="summary-lines-list">
+              <!-- Inyectado por JS -->
+            </div>
+
+            <div class="summary-details-list">
+              <div class="kv">
+                <span class="kv__k">Fecha elegida:</span>
+                <span class="kv__v" id="sb-date-val">18 oct 2026</span>
+              </div>
+              <div class="kv">
+                <span class="kv__k">Hora de ingreso:</span>
+                <span class="kv__v" id="sb-time-val">10:00 h</span>
+              </div>
+              <div class="kv">
+                <span class="kv__k">Visitantes:</span>
+                <span class="kv__v" id="sb-visitors-val">2 adultos</span>
+              </div>
+              <div class="kv kv--total">
+                <span class="kv__k">Total referencial:</span>
+                <span class="kv__v" id="sb-total-val">S/ 30</span>
+              </div>
+            </div>
+
+            <p class="small muted" style="margin-top: var(--sp-4); margin-bottom: 0;">
+              El botón se habilitará automáticamente al completar los campos obligatorios.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer" data-component="footer"></div>
+  <script type="module" src="js/pages/reserva-2.js"></script>
+</body>
+</html>

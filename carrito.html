@@ -1,0 +1,106 @@
+<!doctype html>
+<!-- =====================================================================
+  YANASARA TERMALES · Pantalla 06: Mi Reserva (Carrito)
+  Lista de servicios agregados con foto, precio, quitar y deshacer,
+  selector de adultos, subtotal y total referencial, estado vacío y botón Continuar.
+  ===================================================================== -->
+<html lang="es" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Reserva (Carrito) · YANASARA TERMALES</title>
+  <meta name="description" content="Revisa los servicios seleccionados para tu visita a Yanasara Termales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/carrito.css">
+</head>
+<body data-page="carrito">
+  <div id="site-header" data-component="header"></div>
+
+  <main id="contenido">
+    <header class="section section--tight carrito-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Miga de pan">
+          <a class="back-link" href="servicios.html">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13 5 8l5-5"/></svg>
+            Seguir explorando servicios
+          </a>
+        </nav>
+        <p class="eyebrow">Tu Experiencia Personalizada</p>
+        <h1 class="carrito-hero__title">Mi Reserva</h1>
+        <p class="lead carrito-hero__lead">
+          Revisa y ajusta los servicios elegidos. Puedes agregar o quitar actividades antes de confirmar tus datos.
+        </p>
+      </div>
+    </header>
+
+    <section class="section section--tight carrito-content-section">
+      <div class="container">
+        <!-- Vista con ítems en el carrito -->
+        <div class="carrito-layout" id="carrito-layout">
+          <!-- Columna Izquierda: Lista de Servicios -->
+          <div class="carrito-items-column">
+            <div class="carrito-items-header">
+              <h2 style="font-size: var(--fs-h4); margin: 0;">Servicios en tu reserva (<span id="cart-items-count">0</span>)</h2>
+              <button type="button" class="btn--text small" id="btn-clear-cart">Vaciar todo</button>
+            </div>
+            <div class="carrito-items-list" id="carrito-items-list">
+              <!-- Inyectado dinámicamente -->
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Resumen de Costos -->
+          <aside class="carrito-summary-column">
+            <div class="card carrito-summary-card reveal">
+              <h2 class="carrito-summary-title">Resumen referencial</h2>
+
+              <!-- Selector de Adultos por Reserva -->
+              <div class="carrito-summary-adults">
+                <span class="field__label">Cantidad de adultos:</span>
+                <div class="qty" id="cart-qty" aria-label="Adultos por reserva">
+                  <button type="button" data-qty="-1" aria-label="Menos adultos">−</button>
+                  <output id="cart-adults-out">2</output>
+                  <button type="button" data-qty="1" aria-label="Más adultos">+</button>
+                </div>
+              </div>
+
+              <div class="kv">
+                <span class="kv__k">Subtotal (por persona):</span>
+                <span class="kv__v" id="cart-subtotal-val">S/ 0</span>
+              </div>
+              <div class="kv">
+                <span class="kv__k">Multiplicador por visitantes:</span>
+                <span class="kv__v" id="cart-multiplier-val">× 2</span>
+              </div>
+              <div class="kv kv--total">
+                <span class="kv__k">Total referencial:</span>
+                <span class="kv__v" id="cart-total-val">S/ 0</span>
+              </div>
+
+              <p class="small muted" style="margin-top: var(--sp-3); margin-bottom: var(--sp-5);">
+                Tarifas referenciales demostrativas. Sin cobros monetarios reales.
+              </p>
+
+              <a href="reserva-1.html" class="btn btn--primary btn--block" id="btn-cart-continue">
+                Continuar con la reserva
+              </a>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Estado Vacío cuando no hay ítems -->
+        <div class="carrito-empty-wrapper" id="carrito-empty-wrapper" hidden>
+          <!-- Inyectado por JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer" data-component="footer"></div>
+  <script type="module" src="js/pages/carrito.js"></script>
+</body>
+</html>

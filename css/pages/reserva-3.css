@@ -1,0 +1,120 @@
+/* =====================================================================
+   PÁGINA · 09 RESERVA · PASO 3 CONFIRMACIÓN
+   Check animado, código generado (YT-00xxx), voucher con datos ingresados
+   y botones de navegación hacia Inicio y Administración.
+   Todo utiliza exclusivamente variables definidas en css/tokens.css.
+   ===================================================================== */
+@import './reserva-1.css';
+
+.confirmacion-section {
+  padding-block: var(--sp-7);
+}
+
+.confirmacion-card {
+  padding: var(--sp-8);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-md);
+}
+
+/* Check animado */
+.confirm-animation-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--sp-4);
+}
+
+.confirm-checkmark {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 3;
+  stroke: var(--color-secondary);
+  stroke-miterlimit: 10;
+  box-shadow: inset 0 0 0 var(--color-secondary);
+  animation: fill-check 0.4s ease-in-out 0.4s forwards, scale-check 0.3s ease-in-out 0.9s both;
+}
+
+.confirm-checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 3;
+  stroke: var(--color-secondary);
+  fill: var(--color-success-bg);
+  animation: stroke-circle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.confirm-checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: var(--color-secondary);
+  animation: stroke-check 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+}
+
+@keyframes stroke-circle {
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes stroke-check {
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes scale-check {
+  0%, 100% { transform: none; }
+  50% { transform: scale3d(1.1, 1.1, 1); }
+}
+
+.confirmacion-code {
+  font-family: monospace;
+  font-size: var(--fs-h1);
+  color: var(--color-primary);
+  margin-block: var(--sp-1);
+  letter-spacing: 1px;
+}
+
+.confirmacion-voucher {
+  margin-top: var(--sp-6);
+  padding: var(--sp-5);
+  background: var(--color-bg);
+  border-radius: var(--r-sm);
+  border: 1px dashed var(--color-border);
+}
+
+.confirmacion-voucher__title {
+  font-size: var(--fs-ui);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--color-accent-strong);
+  margin-bottom: var(--sp-3);
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.confirmacion-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+}
+
+@media (max-width: 767px) {
+  .confirmacion-card {
+    padding: var(--sp-5);
+  }
+
+  .confirmacion-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confirm-checkmark,
+  .confirm-checkmark__circle,
+  .confirm-checkmark__check {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
