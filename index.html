@@ -1,0 +1,249 @@
+<!doctype html>
+<!-- =====================================================================
+  YANASARA TERMALES · Pantalla 01: Inicio
+  Hero con foto y degradado oscuro, buscador flotante de disponibilidad,
+  "Vive Yanasara" (3 tarjetas), "Naturaleza que inspira" (galería asimétrica
+  con vista ampliada modal), presentación con 3 valores y footer.
+  ===================================================================== -->
+<html lang="es" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YANASARA TERMALES · Turismo de Bienestar y Aguas Termales</title>
+  <meta name="description" content="Descubre la relajación total en los Baños Termales de Yanasara, Huamachuco. Aguas templadas, pozas de piedra y descanso consciente en los Andes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/inicio.css">
+</head>
+<body data-page="inicio">
+  <div id="site-header" data-component="header"></div>
+
+  <main id="contenido">
+    <!-- Hero Principal -->
+    <section class="hero-section">
+      <div class="hero-bg">
+        <img src="assets/img/hero-pozas.jpg" alt="Pozas termales de Yanasara rodeadas de montañas andinas" loading="eager" width="1600" height="900" onerror="this.parentElement.classList.add('is-missing')">
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="container hero-container">
+        <div class="hero-content reveal">
+          <p class="hero-eyebrow">Turismo de Bienestar en Huamachuco · La Libertad</p>
+          <h1 class="hero-title">DESCUBRE LA RELAJACIÓN TOTAL</h1>
+          <p class="hero-lead">
+            Aguas termales templadas, pozas rústicas de piedra y aire puro andino. Un refugio consciente en el corazón de los Andes para desconectar del ruido y renovar tu energía.
+          </p>
+          <div class="hero-actions">
+            <a href="servicios.html" class="btn btn--light">Explorar servicios</a>
+            <a href="reserva-1.html" class="btn btn--primary">Reservar ahora</a>
+          </div>
+        </div>
+
+        <!-- Buscador de reservas flotante -->
+        <div class="search-bar-floating card reveal" id="booking-bar">
+          <form class="search-bar-floating__form" id="floating-booking-form">
+            <!-- Fecha de visita -->
+            <div class="field">
+              <label class="field__label" for="search-date">Fecha de visita <span class="req">*</span></label>
+              <input type="date" id="search-date" class="input" value="2026-10-18" min="2026-10-01" max="2026-10-31" required>
+            </div>
+
+            <!-- Salida opcional -->
+            <div class="field">
+              <label class="field__label" for="search-exit">Salida (opcional)</label>
+              <input type="date" id="search-exit" class="input" min="2026-10-01" max="2026-10-31">
+            </div>
+
+            <!-- Adultos -->
+            <div class="field">
+              <label class="field__label" for="search-adults">Adultos</label>
+              <select id="search-adults" class="select" aria-label="Cantidad de adultos">
+                <option value="1">1 adulto</option>
+                <option value="2" selected>2 adultos</option>
+                <option value="3">3 adultos</option>
+                <option value="4">4 adultos</option>
+                <option value="5">5 adultos</option>
+                <option value="6">6 adultos</option>
+              </select>
+            </div>
+
+            <!-- Niños -->
+            <div class="field">
+              <label class="field__label" for="search-children">Niños</label>
+              <select id="search-children" class="select" aria-label="Cantidad de niños">
+                <option value="0" selected>0 niños</option>
+                <option value="1">1 niño</option>
+                <option value="2">2 niños</option>
+                <option value="3">3 niños</option>
+                <option value="4">4 niños</option>
+              </select>
+            </div>
+
+            <!-- Botón de acción -->
+            <div class="search-bar-floating__action">
+              <button type="submit" class="btn btn--primary btn--block" id="btn-check-availability">
+                Ver disponibilidad
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: VIVE YANASARA (3 Tarjetas) -->
+    <section class="section vive-section" aria-label="Experiencias Vive Yanasara">
+      <div class="container">
+        <div class="section-heading text-center">
+          <p class="eyebrow">Experiencias Destacadas</p>
+          <h2>VIVE YANASARA</h2>
+          <p class="lead" style="margin-inline: auto;">
+            Tres formas distintas de disfrutar del agua templada andina y conectar con el descanso.
+          </p>
+        </div>
+
+        <div class="grid grid--3 vive-grid">
+          <!-- Tarjeta 1: Circuito Termal -->
+          <article class="card vive-card reveal">
+            <div class="vive-card__media">
+              <img src="assets/img/aguas-temperadas.jpg" alt="Aguas termales templadas de piedra" loading="lazy" width="600" height="400" onerror="this.parentElement.classList.add('is-missing')">
+            </div>
+            <div class="vive-card__body">
+              <span class="eyebrow">Relajación esencial</span>
+              <h3 class="vive-card__title">Aguas Termales Templadas</h3>
+              <p class="vive-card__text">
+                Pozas rústicas integradas al paisaje con agua templada continua, ideales para nadar con calma o flotar sin prisa.
+              </p>
+              <a href="servicios.html" class="btn btn--outline btn--sm">Ver servicios</a>
+            </div>
+          </article>
+
+          <!-- Tarjeta 2: Pozas Privadas -->
+          <article class="card vive-card reveal">
+            <div class="vive-card__media">
+              <img src="assets/img/pozas-privadas.jpg" alt="Poza privada de piedra entre vegetación" loading="lazy" width="600" height="400" onerror="this.parentElement.classList.add('is-missing')">
+            </div>
+            <div class="vive-card__body">
+              <span class="eyebrow">Privacidad y calma</span>
+              <h3 class="vive-card__title">Pozas Privadas de Piedra</h3>
+              <p class="vive-card__text">
+                Espacios reservados para parejas o familias pequeñas, rodeados de vegetación andina y máxima serenidad.
+              </p>
+              <a href="tarifas.html" class="btn btn--outline btn--sm">Ver tarifas</a>
+            </div>
+          </article>
+
+          <!-- Tarjeta 3: Mirador y Paisaje -->
+          <article class="card vive-card reveal">
+            <div class="vive-card__media">
+              <img src="assets/img/mirador.jpg" alt="Vista abierta del valle andino desde el mirador" loading="lazy" width="600" height="400" onerror="this.parentElement.classList.add('is-missing')">
+            </div>
+            <div class="vive-card__body">
+              <span class="eyebrow">Naturaleza y horizonte</span>
+              <h3 class="vive-card__title">Mirador del Valle</h3>
+              <p class="vive-card__text">
+                Un sendero suave que conduce a una vista panorámica de las montañas de Huamachuco para contemplar el atardecer.
+              </p>
+              <a href="servicios.html" class="btn btn--outline btn--sm">Ver mirador</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: NATURALEZA QUE INSPIRA (Galería asimétrica con vista ampliada) -->
+    <section class="section section--surface galeria-section" aria-label="Galería visual de Yanasara">
+      <div class="container">
+        <div class="section-heading text-center">
+          <p class="eyebrow">Galería Fotográfica</p>
+          <h2>NATURALEZA QUE INSPIRA</h2>
+          <p class="lead" style="margin-inline: auto;">
+            Haz clic en cualquiera de las fotografías para verlas en tamaño ampliado.
+          </p>
+        </div>
+
+        <div class="galeria-grid" id="galeria-grid">
+          <!-- Foto 1 (Destacada amplia) -->
+          <button type="button" class="galeria-item galeria-item--large reveal" data-img="assets/img/galeria-1.jpg" data-caption="Valle andino y cordillera de Yanasara al amanecer" aria-label="Ampliar foto: Valle andino de Yanasara">
+            <img src="assets/img/galeria-1.jpg" alt="Valle andino de Yanasara" loading="lazy" width="800" height="600" onerror="this.parentElement.classList.add('is-missing')">
+            <span class="galeria-item__zoom">🔍 Ver ampliada</span>
+          </button>
+
+          <!-- Foto 2 -->
+          <button type="button" class="galeria-item reveal" data-img="assets/img/galeria-2.jpg" data-caption="Pozas de piedra rústica con agua templada continua" aria-label="Ampliar foto: Pozas de piedra rústica">
+            <img src="assets/img/galeria-2.jpg" alt="Pozas de piedra rústica" loading="lazy" width="600" height="400" onerror="this.parentElement.classList.add('is-missing')">
+            <span class="galeria-item__zoom">🔍 Ver ampliada</span>
+          </button>
+
+          <!-- Foto 3 -->
+          <button type="button" class="galeria-item reveal" data-img="assets/img/galeria-3.jpg" data-caption="Piscina olímpica de aguas termales templadas" aria-label="Ampliar foto: Piscina olímpica">
+            <img src="assets/img/galeria-3.jpg" alt="Piscina olímpica" loading="lazy" width="600" height="400" onerror="this.parentElement.classList.add('is-missing')">
+            <span class="galeria-item__zoom">🔍 Ver ampliada</span>
+          </button>
+
+          <!-- Foto 4 -->
+          <button type="button" class="galeria-item reveal" data-img="assets/img/galeria-4.jpg" data-caption="Senderos y vegetación andina en el entorno termal" aria-label="Ampliar foto: Senderos andinos">
+            <img src="assets/img/galeria-4.jpg" alt="Senderos andinos" loading="lazy" width="600" height="400" onerror="this.parentElement.classList.add('is-missing')">
+            <span class="galeria-item__zoom">🔍 Ver ampliada</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Lightbox para vista ampliada de la galería -->
+    <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Vista ampliada de fotografía">
+      <div class="lightbox-overlay" id="lightbox-overlay"></div>
+      <div class="lightbox-content">
+        <button type="button" class="lightbox-close" id="btn-close-lightbox" aria-label="Cerrar vista ampliada">×</button>
+        <div class="lightbox-media">
+          <img id="lightbox-img" src="" alt="Fotografía ampliada">
+        </div>
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <!-- Sección: Presentación del lugar con 3 Valores -->
+    <section class="section valores-intro-section">
+      <div class="container">
+        <div class="valores-intro-card card reveal">
+          <div class="valores-intro-header text-center">
+            <p class="eyebrow">Pausa Consciente</p>
+            <h2>Un Refugio Diseñado para el Sosiego</h2>
+            <p class="lead" style="margin-inline: auto;">
+              Nuestra propuesta de turismo de bienestar se sostiene en tres pilares que respetan el ritmo de la montaña.
+            </p>
+          </div>
+
+          <div class="grid grid--3 valores-intro-grid">
+            <div class="valor-pill">
+              <span class="valor-pill__icon" aria-hidden="true">🌿</span>
+              <h3>Calma consciente</h3>
+              <p class="small muted">Desacelera el ritmo diario y contempla el entorno sin presiones de tiempo.</p>
+            </div>
+            <div class="valor-pill">
+              <span class="valor-pill__icon" aria-hidden="true">⛰️</span>
+              <h3>Respeto a la tierra</h3>
+              <p class="small muted">Preservamos el flujo de agua andina con arquitectura de piedra local.</p>
+            </div>
+            <div class="valor-pill">
+              <span class="valor-pill__icon" aria-hidden="true">🤝</span>
+              <h3>Hospitalidad sincera</h3>
+              <p class="small muted">Atención cálida, transparente y respetuosa con cada persona y familia.</p>
+            </div>
+          </div>
+
+          <div class="text-center" style="margin-top: var(--sp-6);">
+            <a href="historia.html" class="btn btn--primary">Conocer nuestra historia</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer" data-component="footer"></div>
+  <script type="module" src="js/pages/inicio.js"></script>
+</body>
+</html>

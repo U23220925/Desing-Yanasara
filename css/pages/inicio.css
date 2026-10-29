@@ -1,0 +1,445 @@
+/* =====================================================================
+   PÁGINA · 01 INICIO
+   Hero inmersivo con degradado oscuro, buscador de reservas flotante,
+   sección "Vive Yanasara", galería asimétrica con lightbox modal y 3 valores.
+   Todo utiliza exclusivamente variables definidas en css/tokens.css.
+   ===================================================================== */
+
+/* ---------------- Hero Principal ---------------- */
+.hero-section {
+  position: relative;
+  min-height: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--sp-9);
+  padding-bottom: calc(var(--sp-9) + 40px);
+  color: var(--color-on-dark);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  background: linear-gradient(135deg, #1b382b, #245a43);
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-bg.is-missing img {
+  display: none;
+}
+
+/* Degradado oscuro para garantizar contraste WCAG 2.1 AA (> 4.5:1) */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(25, 67, 50, 0.72) 0%,
+    rgba(22, 50, 38, 0.82) 60%,
+    rgba(15, 35, 27, 0.94) 100%
+  );
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-content {
+  max-width: 780px;
+}
+
+.hero-eyebrow {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-surface-alt);
+  margin-bottom: var(--sp-3);
+}
+
+.hero-title {
+  font-size: var(--fs-h1);
+  color: var(--color-on-dark);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--sp-4);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-lead {
+  font-size: calc(var(--fs-body) + 2px);
+  color: var(--color-on-dark-muted);
+  line-height: var(--lh-body);
+  max-width: 62ch;
+  margin-bottom: var(--sp-6);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+}
+
+/* ---------------- Buscador de Reservas Flotante ---------------- */
+.search-bar-floating {
+  margin-top: var(--sp-8);
+  padding: var(--sp-5);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-text);
+}
+
+.search-bar-floating__form {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 1fr 1fr 1.3fr;
+  gap: var(--sp-3);
+  align-items: flex-end;
+}
+
+.search-bar-floating__action {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* ---------------- Sección: VIVE YANASARA ---------------- */
+.vive-section {
+  padding-block: var(--sp-9);
+}
+
+.vive-grid {
+  align-items: stretch;
+  margin-top: var(--sp-6);
+}
+
+.vive-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+
+.vive-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.vive-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: linear-gradient(135deg, #c4d6c3, var(--color-surface-alt));
+}
+
+.vive-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.vive-card:hover .vive-card__media img {
+  transform: scale(1.04);
+}
+
+.vive-card__media.is-missing img {
+  display: none;
+}
+
+.vive-card__body {
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.vive-card__title {
+  font-size: var(--fs-h4);
+  color: var(--color-primary);
+  margin-bottom: var(--sp-2);
+}
+
+.vive-card__text {
+  font-size: var(--fs-ui);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+  flex: 1;
+  margin-bottom: var(--sp-4);
+}
+
+/* ---------------- Sección: NATURALEZA QUE INSPIRA (Galería Asimétrica) ---------------- */
+.galeria-section {
+  padding-block: var(--sp-9);
+  border-top: 1px solid var(--color-border-soft);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: repeat(2, 240px);
+  gap: var(--sp-4);
+  margin-top: var(--sp-7);
+}
+
+.galeria-item {
+  position: relative;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  cursor: pointer;
+  background: linear-gradient(135deg, #c4d6c3, var(--color-surface-alt));
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+
+.galeria-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.galeria-item--large {
+  grid-row: span 2;
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.galeria-item:hover img {
+  transform: scale(1.03);
+}
+
+.galeria-item.is-missing img {
+  display: none;
+}
+
+.galeria-item__zoom {
+  position: absolute;
+  bottom: var(--sp-3);
+  right: var(--sp-3);
+  padding: 4px 10px;
+  background: rgba(25, 67, 50, 0.85);
+  color: var(--color-on-dark);
+  border-radius: var(--r-pill);
+  font-size: var(--fs-small);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+
+.galeria-item:hover .galeria-item__zoom,
+.galeria-item:focus-visible .galeria-item__zoom {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------------- Modal Lightbox para Galería ---------------- */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: none;
+  place-items: center;
+  padding: var(--sp-5);
+}
+
+.lightbox-modal.is-open {
+  display: grid;
+}
+
+.lightbox-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 35, 27, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+.lightbox-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  width: 100%;
+  background: var(--color-surface);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  animation: page-in var(--dur-base) var(--ease-spring);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  font-size: 26px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 3;
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.lightbox-close:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.lightbox-media {
+  max-height: 70vh;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-media img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  padding: var(--sp-4) var(--sp-5);
+  margin: 0;
+  font-size: var(--fs-ui);
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+/* ---------------- Sección: Presentación con 3 Valores ---------------- */
+.valores-intro-section {
+  padding-block: var(--sp-9);
+}
+
+.valores-intro-card {
+  padding: var(--sp-8);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--r-md);
+}
+
+.valores-intro-grid {
+  margin-top: var(--sp-6);
+  gap: var(--sp-5);
+}
+
+.valor-pill {
+  padding: var(--sp-5);
+  background: var(--color-bg);
+  border-radius: var(--r-sm);
+  text-align: center;
+}
+
+.valor-pill__icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: var(--sp-2);
+}
+
+.valor-pill h3 {
+  font-size: var(--fs-card);
+  margin-bottom: var(--sp-2);
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 1279px) {
+  .search-bar-floating__form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .search-bar-floating__action {
+    grid-column: span 2;
+  }
+
+  .galeria-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .galeria-item--large {
+    grid-row: auto;
+    grid-column: span 2;
+    aspect-ratio: 16 / 9;
+  }
+
+  .galeria-item:not(.galeria-item--large) {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    padding-top: var(--sp-7);
+    padding-bottom: var(--sp-8);
+    min-height: auto;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .search-bar-floating__form {
+    grid-template-columns: 1fr;
+  }
+
+  .search-bar-floating__action {
+    grid-column: auto;
+  }
+
+  .vive-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .galeria-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .galeria-item--large {
+    grid-column: auto;
+  }
+
+  .valores-intro-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .valores-intro-card {
+    padding: var(--sp-5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vive-card:hover,
+  .galeria-item:hover,
+  .galeria-item:hover img {
+    transform: none !important;
+  }
+}
