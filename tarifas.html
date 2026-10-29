@@ -1,0 +1,329 @@
+<!doctype html>
+<!-- =====================================================================
+  YANASARA TERMALES · Pantalla 04: Tarifas
+  Tres planes con lo que incluye y botón Reservar (precarga en paso 1),
+  comparador sencillo de servicios y nota de precios demostrativos.
+  ===================================================================== -->
+<html lang="es" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarifas · YANASARA TERMALES</title>
+  <meta name="description" content="Conoce nuestros planes y tarifas referenciales para circuitos termales, pases familiares y descanso en Yanasara, Huamachuco. Demostración académica.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/tarifas.css">
+</head>
+<body data-page="tarifas">
+  <!-- Encabezado global accesible -->
+  <div id="site-header" data-component="header"></div>
+
+  <main id="contenido">
+    <!-- Hero / Encabezado de la página -->
+    <header class="section section--tight tarifas-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Miga de pan">
+          <a class="back-link" href="index.html">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 13 5 8l5-5"/>
+            </svg>
+            Volver al inicio
+          </a>
+        </nav>
+        <p class="eyebrow">Experiencias y circuitos</p>
+        <h1 class="tarifas-hero__title">Planes y Tarifas Referenciales</h1>
+        <p class="lead tarifas-hero__lead">
+          Disfruta de circuitos diseñados para una pausa consciente en los Andes. Elige el plan que mejor se adapte a tu visita individual o familiar.
+        </p>
+
+        <!-- Nota de precios demostrativos (WCAG 2.1 AA) -->
+        <div class="alert alert--info tarifas-notice" role="region" aria-label="Nota de precios demostrativos">
+          <svg class="tarifas-notice__icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4M12 8h.01"/>
+          </svg>
+          <div>
+            <strong>Gestión académica demostrativa</strong>
+            Todos los precios, fechas y planes son demostrativos para fines del curso. No se realiza ningún cobro monetario real ni transacciones bancarias.
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Catálogo de 3 Planes principales -->
+    <section class="section section--tight plans-section" aria-label="Planes disponibles">
+      <div class="container">
+        <div class="grid grid--3 plans-grid" id="plans-container">
+          <!-- Se cargan dinámicamente con JavaScript o respaldo estático -->
+          <!-- Plan 1: Circuito termal (Destacado) -->
+          <article class="card plan-card plan-card--featured reveal" data-plan-id="circuito-termal">
+            <div class="plan-card__badge" aria-hidden="true">Más elegido</div>
+            <div class="plan-card__body">
+              <p class="plan-card__tag">Experiencia esencial</p>
+              <h2 class="plan-card__name">Circuito termal</h2>
+              <div class="price plan-card__price">
+                <span class="price__value">S/ 15</span>
+                <span class="price__label">Precio referencial · por adulto</span>
+              </div>
+              <p class="plan-card__desc">
+                La experiencia completa para conectar con las aguas termales y contemplar el valle andino con calma.
+              </p>
+              <hr class="plan-card__divider">
+              <p class="plan-card__includes-title">Qué incluye:</p>
+              <ul class="plan-card__includes-list">
+                <li>
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+                  <span>Aguas temperadas termales</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+                  <span>Piscina olímpica</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+                  <span>Acceso al mirador del valle</span>
+                </li>
+              </ul>
+              <div class="plan-card__action">
+                <button type="button" class="btn btn--primary btn--block btn-book-plan" data-plan="circuito-termal">
+                  Reservar plan
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Plan 2: Pase Familiar Recreativo -->
+          <article class="card plan-card reveal" data-plan-id="pase-familiar">
+            <div class="plan-card__body">
+              <p class="plan-card__tag">Familias y grupos</p>
+              <h2 class="plan-card__name">Pase Familiar Recreativo</h2>
+              <div class="price plan-card__price">
+                <span class="price__value">S/ 30</span>
+                <span class="price__label">Precio referencial · por familia</span>
+              </div>
+              <p class="plan-card__note">Válido para hasta 4 personas</p>
+              <p class="plan-card__desc">
+                Ideal para un día de descanso y recreación compartida al aire libre con niños y adultos.
+              </p>
+              <hr class="plan-card__divider">
+              <p class="plan-card__includes-title">Qué incluye:</p>
+              <ul class="plan-card__includes-list">
+                <li>
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+                  <span>Piscina para niños y piscina olímpica</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+                  <span>Aguas temperadas termales</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+                  <span>Área de juegos y acceso al mirador</span>
+                </li>
+              </ul>
+              <div class="plan-card__action">
+                <button type="button" class="btn btn--outline btn--block btn-book-plan" data-plan="pase-familiar">
+                  Reservar plan
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Plan 3: Encuentro con el paisaje -->
+          <article class="card plan-card reveal" data-plan-id="encuentro-paisaje">
+            <div class="plan-card__body">
+              <p class="plan-card__tag">Privacidad y calma</p>
+              <h2 class="plan-card__name">Encuentro con el paisaje</h2>
+              <div class="price plan-card__price">
+                <span class="price__value">S/ 25</span>
+                <span class="price__label">Precio referencial · por adulto</span>
+              </div>
+              <p class="plan-card__desc">
+                Ambiente reservado en pozas de piedra rústica con vistas privilegiadas a la montaña andina.
+              </p>
+              <hr class="plan-card__divider">
+              <p class="plan-card__includes-title">Qué incluye:</p>
+              <ul class="plan-card__includes-list">
+                <li>
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+                  <span>Pozas privadas de piedra</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+                  <span>Acceso prioritario al mirador</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+                  <span>Vestuarios y áreas de reposo preferente</span>
+                </li>
+              </ul>
+              <div class="plan-card__action">
+                <button type="button" class="btn btn--outline btn--block btn-book-plan" data-plan="encuentro-paisaje">
+                  Reservar plan
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Comparador sencillo -->
+    <section class="section section--surface compare-section" id="comparador">
+      <div class="container">
+        <div class="section-heading text-center">
+          <p class="eyebrow">Comparativa clara</p>
+          <h2>Comparador de Planes</h2>
+          <p class="lead" style="margin-inline: auto;">
+            Revisa en detalle qué instalaciones y beneficios están incluidos en cada una de nuestras tarifas.
+          </p>
+        </div>
+
+        <div class="table-container reveal" tabindex="0" role="region" aria-label="Tabla comparativa de planes de Yanasara">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th scope="col" class="compare-table__th-feature">Instalación / Beneficio</th>
+                <th scope="col" class="compare-table__th-plan is-featured">
+                  <span class="compare-table__plan-tag">Recomendado</span>
+                  <strong>Circuito termal</strong>
+                  <span class="compare-table__plan-price">S/ 15 / pers.</span>
+                </th>
+                <th scope="col" class="compare-table__th-plan">
+                  <span class="compare-table__plan-tag">Familias</span>
+                  <strong>Pase Familiar</strong>
+                  <span class="compare-table__plan-price">S/ 30 / familia</span>
+                </th>
+                <th scope="col" class="compare-table__th-plan">
+                  <span class="compare-table__plan-tag">Privacidad</span>
+                  <strong>Encuentro con el paisaje</strong>
+                  <span class="compare-table__plan-price">S/ 25 / pers.</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Aguas temperadas termales</th>
+                <td class="is-featured"><span class="check-icon" aria-label="Incluido">✓</span></td>
+                <td><span class="check-icon" aria-label="Incluido">✓</span></td>
+                <td><span class="dash-icon" aria-label="No incluido">—</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Piscina olímpica de nado</th>
+                <td class="is-featured"><span class="check-icon" aria-label="Incluido">✓</span></td>
+                <td><span class="check-icon" aria-label="Incluido">✓</span></td>
+                <td><span class="dash-icon" aria-label="No incluido">—</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Pozas privadas de piedra rústica</th>
+                <td class="is-featured"><span class="dash-icon" aria-label="No incluido">—</span></td>
+                <td><span class="dash-icon" aria-label="No incluido">—</span></td>
+                <td><span class="check-icon" aria-label="Incluido">✓</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Piscina para niños de baja profundidad</th>
+                <td class="is-featured"><span class="dash-icon" aria-label="No incluido">—</span></td>
+                <td><span class="check-icon" aria-label="Incluido">✓</span></td>
+                <td><span class="dash-icon" aria-label="No incluido">—</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Área de juegos infantiles y canchas</th>
+                <td class="is-featured"><span class="dash-icon" aria-label="No incluido">—</span></td>
+                <td><span class="check-icon" aria-label="Incluido">✓</span></td>
+                <td><span class="dash-icon" aria-label="No incluido">—</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Acceso panorámico al Mirador</th>
+                <td class="is-featured"><span class="check-icon" aria-label="Incluido">✓</span></td>
+                <td><span class="check-icon" aria-label="Incluido">✓</span></td>
+                <td><span class="check-icon" aria-label="Incluido">✓</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Vestuarios y reposo preferente</th>
+                <td class="is-featured"><span class="dash-icon" aria-label="No incluido">—</span></td>
+                <td><span class="dash-icon" aria-label="No incluido">—</span></td>
+                <td><span class="check-icon" aria-label="Incluido">✓</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Modalidad y aforo</th>
+                <td class="is-featured">Por persona</td>
+                <td>Hasta 4 integrantes</td>
+                <td>Por persona (poza privada)</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td class="is-featured">
+                  <button type="button" class="btn btn--primary btn--sm btn--block btn-book-plan" data-plan="circuito-termal">
+                    Reservar
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn--outline btn--sm btn--block btn-book-plan" data-plan="pase-familiar">
+                    Reservar
+                  </button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn--outline btn--sm btn--block btn-book-plan" data-plan="encuentro-paisaje">
+                    Reservar
+                  </button>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Preguntas y detalles de visita -->
+    <section class="section section--tight faq-section">
+      <div class="container">
+        <div class="section-heading text-center">
+          <p class="eyebrow">Dudas frecuentes</p>
+          <h2>Información para tu Visita</h2>
+        </div>
+        <div class="faq-grid">
+          <div class="faq-card reveal">
+            <h3>¿Cuál es el horario de atención?</h3>
+            <p>Atendemos todos los días de 9:00 a 18:00 h. Te sugerimos llegar con anticipación para disfrutar del circuito con tranquilidad.</p>
+          </div>
+          <div class="faq-card reveal">
+            <h3>¿Qué elementos debo llevar?</h3>
+            <p>Traje de baño, toalla personal, sandalias y gorro de baño para piscinas. Para las caminatas al mirador sugerimos calzado cómodo y bloqueador solar.</p>
+          </div>
+          <div class="faq-card reveal">
+            <h3>¿Cómo funciona la reserva demostrativa?</h3>
+            <p>Al hacer clic en "Reservar plan", el sistema precarga tu elección en el Paso 1 de reserva. Puedes completar el formulario sin costo alguno ya que se trata de una prueba académica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección final: CTA hacia servicios individuales -->
+    <section class="section section--alt cta-section">
+      <div class="container text-center">
+        <p class="eyebrow">Personaliza tu día</p>
+        <h2>¿Prefieres elegir servicios de manera individual?</h2>
+        <p class="lead" style="margin-inline: auto;">
+          También puedes agregar a tu reserva cada piscina o poza por separado según tu preferencia.
+        </p>
+        <div class="cluster" style="justify-content: center; margin-top: var(--sp-5);">
+          <a class="btn btn--secondary" href="servicios.html">Explorar catálogo de servicios</a>
+          <a class="btn btn--outline" href="reserva-1.html">Ir al proceso de reserva</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página global montado automáticamente -->
+  <div id="site-footer" data-component="footer"></div>
+
+  <!-- Lógica modular de la pantalla -->
+  <script type="module" src="js/pages/tarifas.js"></script>
+</body>
+</html>

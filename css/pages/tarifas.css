@@ -1,0 +1,363 @@
+/* =====================================================================
+   PÁGINA · 04 TARIFAS
+   Tarjetas de 3 planes (con circuito termal destacado),
+   tabla comparativa accesible y sección de información.
+   Todo utiliza exclusivamente variables definidas en css/tokens.css.
+   ===================================================================== */
+
+/* ---------------- Hero / Encabezado ---------------- */
+.tarifas-hero {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-soft);
+  padding-top: var(--sp-6);
+  padding-bottom: var(--sp-6);
+}
+
+.tarifas-hero .back-link {
+  margin-bottom: var(--sp-3);
+}
+
+.tarifas-hero__title {
+  margin-bottom: var(--sp-2);
+}
+
+.tarifas-hero__lead {
+  max-width: 65ch;
+  margin-bottom: var(--sp-4);
+}
+
+.tarifas-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+
+.tarifas-notice__icon {
+  flex: none;
+  margin-top: 2px;
+  color: var(--color-primary);
+}
+
+/* ---------------- Grilla de Tarjetas de Planes ---------------- */
+.plans-section {
+  padding-top: var(--sp-7);
+  padding-bottom: var(--sp-8);
+}
+
+.plans-grid {
+  align-items: stretch;
+}
+
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--r-md);
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+}
+
+.plan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Plan destacado: Circuito termal */
+.plan-card--featured {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.plan-card--featured:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.plan-card__badge {
+  position: absolute;
+  top: calc(-1 * var(--sp-3));
+  right: var(--sp-5);
+  padding: 4px 14px;
+  background: var(--color-accent-strong);
+  color: var(--color-on-dark);
+  border-radius: var(--r-pill);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  box-shadow: var(--shadow-sm);
+}
+
+.plan-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--sp-6);
+}
+
+.plan-card__tag {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-accent-strong);
+  margin-bottom: var(--sp-2);
+}
+
+.plan-card__name {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--sp-3);
+  color: var(--color-primary);
+}
+
+.plan-card__price {
+  margin-bottom: var(--sp-3);
+}
+
+.plan-card__note {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  color: var(--color-primary);
+  margin-top: calc(-1 * var(--sp-2));
+  margin-bottom: var(--sp-3);
+}
+
+.plan-card__desc {
+  font-size: var(--fs-ui);
+  color: var(--color-text-muted);
+  margin-bottom: var(--sp-4);
+  line-height: var(--lh-body);
+}
+
+.plan-card__divider {
+  border: 0;
+  height: 1px;
+  background: var(--color-border-soft);
+  margin: 0 0 var(--sp-4);
+}
+
+.plan-card__includes-title {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: var(--sp-3);
+}
+
+.plan-card__includes-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+  flex: 1;
+}
+
+.plan-card__includes-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  font-size: var(--fs-ui);
+  color: var(--color-text);
+}
+
+.plan-card__includes-list svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--color-secondary);
+}
+
+.plan-card__action {
+  margin-top: auto;
+}
+
+/* ---------------- Tabla Comparativa ---------------- */
+.compare-section {
+  padding-block: var(--sp-8);
+  border-top: 1px solid var(--color-border-soft);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.section-heading {
+  margin-bottom: var(--sp-6);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  margin-top: var(--sp-5);
+  outline: none;
+}
+
+.table-container:focus-visible {
+  outline: 3px solid var(--color-secondary);
+}
+
+.compare-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  font-size: var(--fs-ui);
+}
+
+.compare-table th,
+.compare-table td {
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 1px solid var(--color-border-soft);
+  text-align: center;
+}
+
+.compare-table__th-feature {
+  width: 32%;
+  text-align: left;
+  font-size: var(--fs-ui);
+  font-weight: var(--fw-semibold);
+  color: var(--color-primary);
+  background: var(--color-surface);
+}
+
+.compare-table tbody th {
+  text-align: left;
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+.compare-table__th-plan {
+  width: 22.6%;
+  background: var(--color-bg);
+  vertical-align: top;
+}
+
+.compare-table__plan-tag {
+  display: inline-block;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-accent-strong);
+  margin-bottom: var(--sp-1);
+}
+
+.compare-table__th-plan strong {
+  display: block;
+  font-size: var(--fs-card);
+  color: var(--color-primary);
+  margin-bottom: var(--sp-1);
+}
+
+.compare-table__plan-price {
+  display: block;
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}
+
+/* Columna destacada en tabla */
+.compare-table .is-featured {
+  background: rgba(36, 90, 67, 0.04);
+  font-weight: var(--fw-medium);
+}
+
+.compare-table th.is-featured {
+  background: rgba(36, 90, 67, 0.08);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-success-bg);
+  color: var(--color-secondary);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.dash-icon {
+  color: var(--color-border);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.compare-table tfoot td {
+  padding-top: var(--sp-5);
+  padding-bottom: var(--sp-5);
+  border-bottom: 0;
+  background: var(--color-surface);
+}
+
+/* ---------------- Preguntas Frecuentes ---------------- */
+.faq-section {
+  padding-block: var(--sp-8);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  margin-top: var(--sp-6);
+}
+
+.faq-card {
+  padding: var(--sp-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-md);
+}
+
+.faq-card h3 {
+  font-size: var(--fs-card);
+  margin-bottom: var(--sp-3);
+  color: var(--color-primary);
+}
+
+.faq-card p {
+  font-size: var(--fs-ui);
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: var(--lh-body);
+}
+
+/* ---------------- CTA Inferior ---------------- */
+.cta-section {
+  padding-block: var(--sp-8);
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 1279px) {
+  .faq-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .plans-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .faq-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .plan-card__body {
+    padding: var(--sp-5);
+  }
+}
+
+/* Accesibilidad reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .plan-card:hover {
+    transform: none !important;
+  }
+}

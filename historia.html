@@ -1,0 +1,228 @@
+<!doctype html>
+<!-- =====================================================================
+  YANASARA TERMALES · Pantalla 05: Historia
+  Relato conceptual (sin fechas ni certificaciones inventadas),
+  fotografía, tres valores, línea de tiempo con animación al scroll
+  y botón hacia Servicios.
+  ===================================================================== -->
+<html lang="es" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Historia · YANASARA TERMALES</title>
+  <meta name="description" content="Conoce la historia conceptual de Yanasara Termales: respeto al entorno andino, arquitectura de piedra y bienestar consciente en Huamachuco.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/historia.css">
+</head>
+<body data-page="historia">
+  <!-- Encabezado global accesible -->
+  <div id="site-header" data-component="header"></div>
+
+  <main id="contenido">
+    <!-- Hero / Encabezado de la página -->
+    <header class="section section--tight historia-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Miga de pan">
+          <a class="back-link" href="index.html">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 13 5 8l5-5"/>
+            </svg>
+            Volver al inicio
+          </a>
+        </nav>
+        <p class="eyebrow">Nuestra esencia y origen</p>
+        <h1 class="historia-hero__title">La Historia de Yanasara</h1>
+        <p class="lead historia-hero__lead">
+          Un refugio andino donde el calor de la tierra, la piedra rústica y el silencio de las montañas se encuentran para dar vida a una pausa consciente.
+        </p>
+      </div>
+    </header>
+
+    <!-- Sección: Relato Conceptual y Fotografía -->
+    <section class="section section--surface relato-section">
+      <div class="container relato-grid">
+        <!-- Columna de texto conceptual -->
+        <div class="relato-content reveal">
+          <p class="eyebrow">El origen natural</p>
+          <h2>El agua que brota de la cordillera</h2>
+          <p>
+            En las alturas de Huamachuco, entre las laderas que custodian el valle de Yanasara, el agua brota a temperatura templada directamente desde las profundidades de la tierra andina. Por generaciones, los caminantes y pobladores encontraron en estas nacientes un lugar de serenidad, reposo y respiro al abrigo de los cerros.
+          </p>
+          <p>
+            Yanasara nació bajo una premisa fundamental: acoger la calidez de esta agua sin alterar el equilibrio del valle. La arquitectura de nuestras pozas fue concebida a partir de las mismas rocas del entorno, labradas artesanalmente para crear cuencas rústicas donde el visitante pueda contemplar el paisaje mientras el tiempo recupera su ritmo natural.
+          </p>
+          <p>
+            Lejos del bullicio urbano, preservamos este espacio como un remanso de bienestar andino: un entorno donde el aire puro, el viento de montaña y el calor mineral invitan a desconectar la mente y reencontrarse con el presente.
+          </p>
+        </div>
+
+        <!-- Columna de fotografía -->
+        <div class="relato-media reveal">
+          <div class="relato-media__frame">
+            <img src="assets/img/historia.jpg" alt="Pozas de piedra rústica y vista panorámica del valle andino de Yanasara" loading="lazy" width="720" height="540" onerror="this.parentElement.classList.add('is-missing')">
+            <div class="relato-media__caption">
+              <span>Pozas de piedra rústica integradas al paisaje andino de Huamachuco.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Tres Valores Fundamentales -->
+    <section class="section valores-section" aria-label="Nuestros valores fundamentales">
+      <div class="container">
+        <div class="section-heading text-center">
+          <p class="eyebrow">Principios que nos guían</p>
+          <h2>Nuestros Tres Valores</h2>
+          <p class="lead" style="margin-inline: auto;">
+            Cada rincón de Yanasara está pensado desde el respeto a la naturaleza y el cuidado de las personas.
+          </p>
+        </div>
+
+        <div class="grid grid--3 valores-grid">
+          <!-- Valor 1: Calma consciente -->
+          <article class="card valor-card reveal">
+            <div class="valor-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 7v5l3 2"/>
+              </svg>
+            </div>
+            <h3 class="valor-card__title">Calma consciente</h3>
+            <p class="valor-card__desc">
+              Creemos en la pausa como una necesidad vital. Espacios concebidos para desacelerar la prisa diaria, respirar con profundidad y disfrutar del silencio andino.
+            </p>
+          </article>
+
+          <!-- Valor 2: Respeto al entorno -->
+          <article class="card valor-card reveal">
+            <div class="valor-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 30 14 9l6 11 5-7 12 17" transform="scale(0.5) translate(4, 4)"/>
+                <circle cx="12" cy="12" r="8"/>
+              </svg>
+            </div>
+            <h3 class="valor-card__title">Respeto al entorno</h3>
+            <p class="valor-card__desc">
+              Cuidamos las fuentes de agua natural y construimos con piedra autóctona, preservando la geografía andina de Yanasara sin generar impactos artificiales.
+            </p>
+          </article>
+
+          <!-- Valor 3: Hospitalidad sincera -->
+          <article class="card valor-card reveal">
+            <div class="valor-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 class="valor-card__title">Hospitalidad sincera</h3>
+            <p class="valor-card__desc">
+              Recibimos a familias, parejas y viajeros con la calidez honesta de nuestra gente, procurando que cada estancia sea transparente, segura y acogedora.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección: Línea de Tiempo Conceptual con animación al scroll -->
+    <section class="section section--surface timeline-section" aria-label="Evolución conceptual de Yanasara">
+      <div class="container">
+        <div class="section-heading text-center">
+          <p class="eyebrow">Evolución en armonía</p>
+          <h2>El Camino hacia la Calma</h2>
+          <p class="lead" style="margin-inline: auto;">
+            Hitos conceptuales que representan el desarrollo de nuestro espacio de reposo andino.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <!-- Hito 1 -->
+          <div class="timeline__item reveal">
+            <div class="timeline__marker" aria-hidden="true">
+              <span class="timeline__dot"></span>
+            </div>
+            <div class="timeline__content card">
+              <span class="timeline__step">Primer hito</span>
+              <h3 class="timeline__title">El calor de las profundidades</h3>
+              <p>
+                El surgimiento natural de vertientes de agua templada a través de las formaciones rocosas de Yanasara, marcando un punto de encuentro geológico y natural único en la sierra liberteña.
+              </p>
+            </div>
+          </div>
+
+          <!-- Hito 2 -->
+          <div class="timeline__item reveal">
+            <div class="timeline__marker" aria-hidden="true">
+              <span class="timeline__dot"></span>
+            </div>
+            <div class="timeline__content card">
+              <span class="timeline__step">Segundo hito</span>
+              <h3 class="timeline__title">La armonía con la piedra</h3>
+              <p>
+                La talla y disposición de las primeras pozas rústicas de piedra volcánica y fluvial, moldeadas a mano para contener el agua tibia respetando la pendiente natural del terreno.
+              </p>
+            </div>
+          </div>
+
+          <!-- Hito 3 -->
+          <div class="timeline__item reveal">
+            <div class="timeline__marker" aria-hidden="true">
+              <span class="timeline__dot"></span>
+            </div>
+            <div class="timeline__content card">
+              <span class="timeline__step">Tercer hito</span>
+              <h3 class="timeline__title">Espacio de encuentro comunitario</h3>
+              <p>
+                La integración de piscinas familiares, senderos de contemplación y el mirador del valle, brindando a visitantes de todas las edades un espacio de recreación y descanso seguro.
+              </p>
+            </div>
+          </div>
+
+          <!-- Hito 4 -->
+          <div class="timeline__item reveal">
+            <div class="timeline__marker" aria-hidden="true">
+              <span class="timeline__dot"></span>
+            </div>
+            <div class="timeline__content card">
+              <span class="timeline__step">Cuarto hito</span>
+              <h3 class="timeline__title">La pausa consciente hoy</h3>
+              <p>
+                La consolidación de Yanasara como un destino de bienestar andino enfocado en el turismo responsable, la tranquilidad de las pozas privadas y la desconexión consciente.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección final: Botón hacia Servicios (Llamado a la acción) -->
+    <section class="section section--alt historia-cta">
+      <div class="container text-center">
+        <p class="eyebrow">Vive la experiencia</p>
+        <h2>Descubre Cada Rincón de Yanasara</h2>
+        <p class="lead" style="margin-inline: auto;">
+          Conoce en detalle nuestras piscinas de agua templada, pozas privadas de piedra y áreas recreativas familiares.
+        </p>
+        <div class="cluster" style="justify-content: center; margin-top: var(--sp-6);">
+          <a class="btn btn--primary" href="servicios.html">Explorar servicios</a>
+          <a class="btn btn--outline" href="tarifas.html">Ver planes y tarifas</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página global montado automáticamente -->
+  <div id="site-footer" data-component="footer"></div>
+
+  <!-- Lógica modular de la pantalla -->
+  <script type="module" src="js/pages/historia.js"></script>
+</body>
+</html>
