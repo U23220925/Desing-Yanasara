@@ -17,5 +17,6 @@ Se completa con cada pantalla. Todos los tiempos y curvas salen de `css/tokens.c
 | I-11 | Transición | Secciones al hacer scroll | Revelado escalonado (80 ms entre elementos) | 500 ms | ease-out |
 | I-12 | Estado | Indicador de pasos | La línea se llena al avanzar | 500 ms | ease-out |
 | I-13 | Estado | Botón | Cargando (spinner) | 700 ms | linear |
+| I-14 | Transición | Filtros plegables | Panel que se desliza desde el lateral con telón de fondo | 300 ms | ease-out |
 
 Con `prefers-reduced-motion` todas las duraciones pasan a 1 ms.

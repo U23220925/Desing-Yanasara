@@ -1,0 +1,242 @@
+<!doctype html>
+<!-- =====================================================================
+  YANASARA TERMALES · Pantalla 02: Servicios
+  Catálogo de servicios, búsqueda en vivo, filtros combinados, ordenamiento,
+  estado vacío y barra de resumen en vivo.
+  ===================================================================== -->
+<html lang="es" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Servicios · YANASARA TERMALES</title>
+  <meta name="description" content="Descubre nuestras piscinas de aguas termales, pozas privadas y espacios al aire libre en Yanasara, Huamachuco. Precios y horarios demostrativos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/servicios.css">
+</head>
+<body data-page="servicios">
+  <!-- Encabezado global accesible -->
+  <div id="site-header" data-component="header"></div>
+
+  <main id="contenido">
+    <!-- Hero / Encabezado de la página -->
+    <header class="services-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Miga de pan">
+          <a class="back-link" href="index.html">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 13 5 8l5-5"/>
+            </svg>
+            Volver al inicio
+          </a>
+        </nav>
+        <p class="eyebrow">Bienestar andino y recreación</p>
+        <h1 class="services-hero__title">Nuestros Servicios</h1>
+        <p class="lead services-hero__lead">
+          Aguas termales templadas, pozas rústicas de piedra y áreas recreativas familiares en el valle andino de Yanasara. Precios referenciales por persona.
+        </p>
+        <div class="demo-notice" role="note">
+          <span class="badge badge--neutral">Demostración académica</span>
+          <span class="demo-notice__text">Los precios, horarios y disponibilidad son demostrativos para fines del curso.</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Barra de control: búsqueda en vivo, botón filtros y ordenar -->
+    <section class="services-toolbar-section">
+      <div class="container">
+        <div class="services-toolbar">
+          <!-- Búsqueda en vivo -->
+          <div class="search-box">
+            <label for="search-input" class="sr-only">Buscar por nombre o descripción de servicio</label>
+            <span class="search-box__icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="9" r="6"/>
+                <path d="m14 14 4 4"/>
+              </svg>
+            </span>
+            <input type="search" id="search-input" class="input search-box__input" placeholder="Buscar piscina, poza, mirador..." autocomplete="off">
+            <button type="button" id="search-clear" class="search-box__clear" aria-label="Limpiar campo de búsqueda" hidden>×</button>
+          </div>
+
+          <!-- Acciones de la barra -->
+          <div class="toolbar-actions">
+            <!-- Botón para alternar panel de filtros -->
+            <button type="button" class="btn btn--outline btn-filter-toggle" id="btn-toggle-filters" aria-expanded="false" aria-controls="filters-panel">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 5h14M6 10h8M8 15h4"/>
+              </svg>
+              <span>Filtros</span>
+              <span class="filter-badge" id="filter-badge" hidden>0</span>
+            </button>
+
+            <!-- Selector de ordenamiento -->
+            <div class="sort-box">
+              <label for="sort-select" class="sort-box__label">Ordenar:</label>
+              <select id="sort-select" class="select sort-box__select" aria-label="Ordenar catálogo de servicios">
+                <option value="default">Recomendados</option>
+                <option value="price-asc">Precio: menor a mayor</option>
+                <option value="price-desc">Precio: mayor a menor</option>
+                <option value="name-asc">Nombre: A – Z</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Indicador de resultados y chips de filtros activos -->
+        <div class="filter-status-bar">
+          <p class="results-count" id="results-count" aria-live="polite">Mostrando 6 de 6 servicios</p>
+          <div class="active-chips" id="active-chips" aria-label="Filtros aplicados"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección principal: Panel de filtros plegable + Catálogo de tarjetas -->
+    <section class="section section--tight services-content-section">
+      <div class="container services-layout">
+        <!-- Telón oscuro de fondo para móvil/tablet -->
+        <div class="filters-scrim" id="filters-scrim" aria-hidden="true"></div>
+
+        <!-- Panel de filtros (plegable en móvil/tablet y colapsable en PC) -->
+        <aside class="filters-panel" id="filters-panel" aria-labelledby="filters-title">
+          <div class="filters-panel__inner">
+            <div class="filters-panel__header">
+              <h2 class="filters-panel__title" id="filters-title">Filtros</h2>
+              <button type="button" class="filters-panel__close" id="btn-close-filters" aria-label="Cerrar panel de filtros">×</button>
+            </div>
+
+            <form class="filters-panel__form" id="filters-form" onsubmit="return false;">
+              <!-- Tipo de servicio -->
+              <fieldset class="filter-group">
+                <legend class="filter-group__title">Tipo de servicio</legend>
+                <div class="filter-group__list">
+                  <label class="check">
+                    <input type="checkbox" name="category" value="termales">
+                    <span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+                    <span class="check__label">Termales</span>
+                  </label>
+                  <label class="check">
+                    <input type="checkbox" name="category" value="recreativo">
+                    <span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+                    <span class="check__label">Recreativo</span>
+                  </label>
+                  <label class="check">
+                    <input type="checkbox" name="category" value="naturaleza">
+                    <span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+                    <span class="check__label">Naturaleza</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <!-- Experiencias -->
+              <fieldset class="filter-group">
+                <legend class="filter-group__title">Experiencia</legend>
+                <div class="filter-group__list">
+                  <label class="check">
+                    <input type="checkbox" name="experience" value="relajacion">
+                    <span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+                    <span class="check__label">Relajación</span>
+                  </label>
+                  <label class="check">
+                    <input type="checkbox" name="experience" value="familiar">
+                    <span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+                    <span class="check__label">Familiar</span>
+                  </label>
+                  <label class="check">
+                    <input type="checkbox" name="experience" value="paisaje">
+                    <span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+                    <span class="check__label">Paisaje</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <!-- Instalaciones -->
+              <fieldset class="filter-group">
+                <legend class="filter-group__title">Instalaciones</legend>
+                <div class="filter-group__list">
+                  <label class="check">
+                    <input type="checkbox" name="facility" value="privada">
+                    <span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+                    <span class="check__label">Privadas</span>
+                  </label>
+                  <label class="check">
+                    <input type="checkbox" name="facility" value="compartida">
+                    <span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+                    <span class="check__label">Compartidas</span>
+                  </label>
+                  <label class="check">
+                    <input type="checkbox" name="facility" value="familiar">
+                    <span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+                    <span class="check__label">Familiares</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <!-- Rango de precio referencial -->
+              <fieldset class="filter-group">
+                <legend class="filter-group__title">Precio referencial (por persona)</legend>
+                <div class="range-container">
+                  <div class="range" id="price-range">
+                    <i class="range__track"></i>
+                    <i class="range__fill"></i>
+                    <input type="range" id="price-min" min="0" max="30" value="0" aria-label="Precio mínimo referencial">
+                    <input type="range" id="price-max" min="0" max="30" value="30" aria-label="Precio máximo referencial">
+                  </div>
+                  <div class="range-labels">
+                    <span class="range-labels__value" id="range-out">S/ 0 – S/ 30</span>
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- Acciones del panel -->
+              <div class="filters-panel__actions">
+                <button type="button" class="btn btn--primary btn--block" id="btn-apply-filters">Aplicar filtros</button>
+                <button type="button" class="btn btn--outline btn--block" id="btn-clear-filters">Limpiar</button>
+              </div>
+            </form>
+          </div>
+        </aside>
+
+        <!-- Catálogo de 6 tarjetas (3x2 en PC, 2 col en tablet, 1 col en móvil) -->
+        <div class="catalog-content">
+          <div class="grid grid--3 catalog-grid" id="services-grid" aria-label="Lista de servicios"></div>
+          <div class="empty-state-wrapper" id="empty-state-wrapper" hidden></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barra de resumen en vivo: fijada en la parte inferior de la ventana -->
+    <div class="summary-bar-wrapper">
+      <div class="container">
+        <aside class="summary-bar" id="summary-bar" aria-label="Resumen de la selección">
+          <div class="summary-bar__item">
+            <span class="summary-bar__label">Selección</span>
+            <span class="summary-bar__value" id="sb-count">0 servicios</span>
+          </div>
+          <div class="summary-bar__item summary-bar__item--grow">
+            <span class="summary-bar__label">Servicios elegidos</span>
+            <span class="summary-bar__names" id="sb-names">Aún no has elegido servicios.</span>
+          </div>
+          <div class="summary-bar__item">
+            <span class="summary-bar__label">Subtotal ilustrativo</span>
+            <span class="summary-bar__value" id="sb-total">S/ 0</span>
+          </div>
+          <a class="btn btn--primary is-disabled" id="sb-btn-continue" href="carrito.html" aria-disabled="true" tabindex="-1">
+            Continuar con la reserva
+          </a>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Pie de página global montado automáticamente -->
+  <div id="site-footer" data-component="footer"></div>
+
+  <!-- Lógica modular de la pantalla -->
+  <script type="module" src="js/pages/servicios.js"></script>
+</body>
+</html>

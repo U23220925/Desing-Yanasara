@@ -1,0 +1,474 @@
+/* =====================================================================
+   PÁGINA · 02 SERVICIOS
+   Catálogo de 6 tarjetas (3×2 en PC, 2 en tablet, 1 en móvil),
+   barra de búsqueda, panel de filtros plegable, etiquetas de filtros activos,
+   ordenamiento por precio y barra de resumen en vivo.
+   Todo utiliza exclusivamente tokens definidos en css/tokens.css.
+   ===================================================================== */
+
+/* ---------------- Hero / Encabezado ---------------- */
+.services-hero {
+  padding-top: var(--sp-6);
+  padding-bottom: var(--sp-6);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.services-hero .back-link {
+  margin-bottom: var(--sp-3);
+}
+
+.services-hero__title {
+  margin-bottom: var(--sp-2);
+}
+
+.services-hero__lead {
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  max-width: 65ch;
+  margin-bottom: var(--sp-4);
+}
+
+.demo-notice {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--r-sm);
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}
+
+.demo-notice__text {
+  margin: 0;
+}
+
+/* ---------------- Barra de control y búsqueda ---------------- */
+.services-toolbar-section {
+  padding-top: var(--sp-6);
+  padding-bottom: var(--sp-4);
+}
+
+.services-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Buscador en vivo */
+.search-box {
+  position: relative;
+  flex: 1 1 320px;
+  max-width: 520px;
+}
+
+.search-box__icon {
+  position: absolute;
+  left: var(--sp-4);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-muted);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.search-box__input {
+  padding-left: calc(var(--sp-4) + 26px);
+  padding-right: var(--sp-7);
+}
+
+.search-box__clear {
+  position: absolute;
+  right: var(--sp-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-surface-alt);
+  color: var(--color-text-muted);
+  font-size: 18px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.search-box__clear:hover {
+  background: var(--color-border-soft);
+  color: var(--color-text);
+}
+
+/* Acciones de la barra */
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.btn-filter-toggle {
+  position: relative;
+}
+
+.btn-filter-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.filter-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: var(--r-pill);
+  background: var(--color-primary);
+  color: var(--color-on-dark);
+  font-size: 11px;
+  font-weight: var(--fw-semibold);
+  margin-left: var(--sp-1);
+}
+
+.sort-box {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.sort-box__label {
+  font-size: var(--fs-ui);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.sort-box__select {
+  width: auto;
+  min-width: 190px;
+}
+
+/* ---------------- Barra de estado de filtros y chips activos ---------------- */
+.filter-status-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.results-count {
+  margin: 0;
+  font-size: var(--fs-ui);
+  font-weight: var(--fw-semibold);
+  color: var(--color-primary);
+}
+
+.active-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 4px 10px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-pill);
+  font-size: var(--fs-small);
+  color: var(--color-text);
+  animation: page-in var(--dur-fast) var(--ease-out);
+}
+
+.chip__label {
+  font-weight: var(--fw-medium);
+}
+
+.chip__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-surface-alt);
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.chip__btn:hover {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.chip-clear-all {
+  font-size: var(--fs-small);
+  color: var(--color-secondary);
+  background: none;
+  border: 0;
+  padding: 4px var(--sp-2);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.chip-clear-all:hover {
+  color: var(--color-primary);
+}
+
+/* ---------------- Layout del Catálogo y Filtros ---------------- */
+.services-content-section {
+  padding-top: var(--sp-4);
+  padding-bottom: var(--sp-8);
+}
+
+.services-layout {
+  position: relative;
+}
+
+/* Telón de fondo (scrim) para el panel de filtros plegable */
+.filters-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-panel) - 1);
+  background: rgba(25, 67, 50, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur-base) var(--ease-in-out), visibility 0s linear var(--dur-base);
+}
+
+.filters-scrim.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* Panel de filtros plegable */
+.filters-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-panel);
+  width: min(90vw, 380px);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform var(--dur-base) var(--ease-out), visibility 0s linear var(--dur-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.filters-panel.is-open {
+  transform: translateX(0);
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.filters-panel__inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--sp-5);
+  overflow-y: auto;
+}
+
+.filters-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--color-border-soft);
+  margin-bottom: var(--sp-4);
+}
+
+.filters-panel__title {
+  margin: 0;
+  font-size: var(--fs-h4);
+}
+
+.filters-panel__close {
+  width: var(--tap);
+  height: var(--tap);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+
+.filters-panel__close:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+/* Formularios de filtros internos */
+.filters-panel__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  flex: 1;
+}
+
+.filter-group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.filter-group__title {
+  display: block;
+  font-size: var(--fs-ui);
+  font-weight: var(--fw-semibold);
+  color: var(--color-primary);
+  margin-bottom: var(--sp-3);
+  padding: 0;
+}
+
+.filter-group__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.range-container {
+  padding: var(--sp-2) 0;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--sp-2);
+}
+
+.range-labels__value {
+  font-size: var(--fs-ui);
+  font-weight: var(--fw-semibold);
+  color: var(--color-accent-strong);
+}
+
+.filters-panel__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-top: auto;
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--color-border-soft);
+}
+
+/* ---------------- Catálogo de Tarjetas de Servicios ---------------- */
+.catalog-content {
+  width: 100%;
+}
+
+/* Grilla responsive según especificación:
+   PC (≥ 1280px): 3 columnas (3x2 tarjetas)
+   Tablet (768 - 1279px): 2 columnas
+   Móvil (≤ 767px): 1 columna */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+
+@media (max-width: 1279px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .catalog-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.empty-state-wrapper {
+  margin-top: var(--sp-4);
+}
+
+/* ---------------- Barra de Resumen Flotante ---------------- */
+.summary-bar-wrapper {
+  position: sticky;
+  bottom: var(--sp-4);
+  z-index: var(--z-bar);
+  margin-top: var(--sp-6);
+  margin-bottom: var(--sp-4);
+  pointer-events: none;
+}
+
+.summary-bar-wrapper .container {
+  pointer-events: auto;
+}
+
+/* Estado atenuado si no hay selección (según README) */
+.summary-bar .btn.is-disabled {
+  opacity: 0.45;
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+}
+
+/* ---------------- Ajustes de Pantalla Pequeña (Móvil ≤ 767px) ---------------- */
+@media (max-width: 767px) {
+  .services-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    max-width: 100%;
+  }
+
+  .toolbar-actions {
+    justify-content: space-between;
+  }
+
+  .sort-box__select {
+    min-width: 150px;
+  }
+
+  .filters-panel {
+    width: 100%;
+  }
+}
+
+/* Accesibilidad para reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .filters-panel,
+  .filters-scrim,
+  .chip {
+    transition: none !important;
+    animation: none !important;
+  }
+}
