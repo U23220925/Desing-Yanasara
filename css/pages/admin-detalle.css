@@ -1,0 +1,108 @@
+/* =====================================================================
+   PÁGINA · 12 ADMINISTRACIÓN - DETALLE DE RESERVA
+   Ficha de reserva, datos del visitante, resumen de experiencia
+   y botones de cambio de estado demostrativos.
+   Todo utiliza exclusivamente variables definidas en css/tokens.css.
+   ===================================================================== */
+@import './admin-reservas.css';
+
+.detail-header-card {
+  padding: var(--sp-6);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--r-md);
+  margin-bottom: var(--sp-5);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+
+.detail-header-card__code {
+  font-family: monospace;
+  font-size: var(--fs-h2);
+  color: var(--color-primary);
+  margin: 0;
+  line-height: 1;
+}
+
+.detail-sections-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-5);
+  margin-bottom: var(--sp-5);
+}
+
+.detail-card {
+  padding: var(--sp-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-md);
+}
+
+.detail-card__title {
+  font-size: var(--fs-h4);
+  color: var(--color-primary);
+  margin-bottom: var(--sp-4);
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.detail-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.detail-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detail-info-label {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-info-value {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+}
+
+/* Panel de Acciones Demostrativas */
+.detail-actions-card {
+  padding: var(--sp-6);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--r-md);
+}
+
+.detail-actions-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+
+@media (max-width: 767px) {
+  .detail-sections-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-header-card {
+    padding: var(--sp-5);
+  }
+
+  .detail-card {
+    padding: var(--sp-5);
+  }
+
+  .detail-actions-buttons {
+    flex-direction: column;
+  }
+}

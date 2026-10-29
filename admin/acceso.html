@@ -1,0 +1,91 @@
+<!doctype html>
+<!-- =====================================================================
+  YANASARA TERMALES · Pantalla 10: Administración · Acceso
+  Formulario demostrativo (correo y contraseña de ejemplo),
+  mensaje de error y aviso "sin autenticación real".
+  ===================================================================== -->
+<html lang="es" data-root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acceso a Administración · YANASARA TERMALES</title>
+  <meta name="description" content="Acceso al panel administrativo demostrativo de Yanasara Termales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages/admin-acceso.css">
+</head>
+<body data-page="admin-acceso" class="admin-login-body">
+  <div id="site-header" data-component="header"></div>
+
+  <main id="contenido" class="admin-login-main">
+    <div class="container admin-login-container">
+      <div class="card admin-login-card reveal">
+        <div class="admin-login-card__header">
+          <nav aria-label="Navegación secundaria">
+            <a href="../index.html" class="back-link">
+              <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10 13 5 8l5-5"/>
+              </svg>
+              Volver al sitio web
+            </a>
+          </nav>
+          <div class="admin-login-brand">
+            <span class="eyebrow">Gestión interna</span>
+            <h1>Administración</h1>
+            <p class="muted">Ingreso al panel demostrativo de reservas y visitas.</p>
+          </div>
+        </div>
+
+        <div class="alert alert--info admin-login-alert" role="region" aria-label="Aviso de demostración">
+          <div>
+            <strong>Autenticación demostrativa</strong>
+            Este entorno no conecta con una base de datos real. Usa las siguientes credenciales de ejemplo:
+            <div class="demo-credentials">
+              <code>admin@yanasara.example</code> / <code>Demo2026</code>
+            </div>
+          </div>
+        </div>
+
+        <form id="admin-login-form" class="admin-login-form" novalidate>
+          <div class="field" id="field-email">
+            <label class="field__label" for="admin-email">Correo electrónico <span class="req">*</span></label>
+            <input type="email" id="admin-email" class="input" placeholder="admin@yanasara.example" autocomplete="username" required>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+
+          <div class="field" id="field-password">
+            <div class="password-label-wrapper">
+              <label class="field__label" for="admin-password">Contraseña <span class="req">*</span></label>
+              <button type="button" class="btn--text password-toggle" id="btn-toggle-pwd">Mostrar</button>
+            </div>
+            <input type="password" id="admin-password" class="input" placeholder="••••••••" autocomplete="current-password" required>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+
+          <div class="admin-login-actions">
+            <button type="submit" class="btn btn--primary btn--block" id="btn-login">
+              Ingresar al panel
+            </button>
+            <button type="button" class="btn btn--outline btn--block" id="btn-autofill">
+              Autocompletar credenciales demo
+            </button>
+          </div>
+        </form>
+
+        <div class="admin-login-card__footer">
+          <p class="small muted text-center">
+            Proyecto académico · Prototipado Web Yanasara Termales
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer" data-component="footer"></div>
+  <script type="module" src="../js/pages/admin-acceso.js"></script>
+</body>
+</html>
