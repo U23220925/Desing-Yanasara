@@ -1,0 +1,304 @@
+/* =====================================================================
+   PÁGINA · 05 HISTORIA
+   Relato conceptual, fotografía con marco, tres valores fundamentales,
+   línea de tiempo con animación al scroll y llamada a la acción hacia Servicios.
+   Todo utiliza exclusivamente tokens definidos en css/tokens.css.
+   ===================================================================== */
+
+/* ---------------- Hero / Encabezado ---------------- */
+.historia-hero {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-soft);
+  padding-top: var(--sp-6);
+  padding-bottom: var(--sp-6);
+}
+
+.historia-hero .back-link {
+  margin-bottom: var(--sp-3);
+}
+
+.historia-hero__title {
+  margin-bottom: var(--sp-2);
+}
+
+.historia-hero__lead {
+  max-width: 65ch;
+  margin-bottom: 0;
+}
+
+/* ---------------- Sección: Relato Conceptual y Fotografía ---------------- */
+.relato-section {
+  padding-block: var(--sp-8);
+}
+
+.relato-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: var(--sp-7);
+  align-items: center;
+}
+
+.relato-content h2 {
+  margin-bottom: var(--sp-4);
+  color: var(--color-primary);
+}
+
+.relato-content p {
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  line-height: var(--lh-body);
+  margin-bottom: var(--sp-4);
+}
+
+.relato-media__frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, #c4d6c3, var(--color-surface-alt));
+}
+
+.relato-media__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.relato-media__frame:hover img {
+  transform: scale(1.03);
+}
+
+.relato-media__frame.is-missing img {
+  display: none;
+}
+
+.relato-media__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--sp-3) var(--sp-4);
+  background: rgba(36, 90, 67, 0.85);
+  color: var(--color-on-dark);
+  font-size: var(--fs-small);
+  backdrop-filter: blur(4px);
+}
+
+/* ---------------- Sección: Tres Valores ---------------- */
+.valores-section {
+  padding-block: var(--sp-8);
+}
+
+.section-heading {
+  margin-bottom: var(--sp-7);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.valores-grid {
+  align-items: stretch;
+}
+
+.valor-card {
+  padding: var(--sp-6);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--r-md);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+
+.valor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.valor-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-surface-alt);
+  color: var(--color-primary);
+  display: grid;
+  place-items: center;
+  margin-bottom: var(--sp-4);
+}
+
+.valor-card__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.valor-card__title {
+  font-size: var(--fs-h4);
+  color: var(--color-primary);
+  margin-bottom: var(--sp-2);
+}
+
+.valor-card__desc {
+  font-size: var(--fs-ui);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+  margin: 0;
+}
+
+/* ---------------- Sección: Línea de Tiempo Conceptual ---------------- */
+.timeline-section {
+  padding-block: var(--sp-8);
+  border-top: 1px solid var(--color-border-soft);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.timeline {
+  position: relative;
+  max-width: 820px;
+  margin-inline: auto;
+  padding-top: var(--sp-4);
+  padding-bottom: var(--sp-4);
+}
+
+/* Línea conectora central */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 31px;
+  width: 2px;
+  background: var(--color-border);
+}
+
+.timeline__item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-5);
+  margin-bottom: var(--sp-6);
+}
+
+.timeline__item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline__marker {
+  position: relative;
+  z-index: 1;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+.timeline__dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 4px solid var(--color-surface);
+  box-shadow: 0 0 0 2px var(--color-border);
+  transition: transform var(--dur-base) var(--ease-spring), background-color var(--dur-base) var(--ease-out);
+}
+
+.timeline__item:hover .timeline__dot {
+  transform: scale(1.2);
+  background: var(--color-accent-strong);
+}
+
+.timeline__content {
+  flex: 1;
+  padding: var(--sp-5) var(--sp-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+
+.timeline__content:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline__step {
+  display: inline-block;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-accent-strong);
+  margin-bottom: var(--sp-2);
+}
+
+.timeline__title {
+  font-size: var(--fs-card);
+  color: var(--color-primary);
+  margin-bottom: var(--sp-2);
+}
+
+.timeline__content p {
+  font-size: var(--fs-ui);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+  margin: 0;
+}
+
+/* ---------------- Sección: CTA hacia Servicios ---------------- */
+.historia-cta {
+  padding-block: var(--sp-9);
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 1279px) {
+  .relato-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-6);
+  }
+
+  .valores-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .valores-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .timeline::before {
+    left: 23px;
+  }
+
+  .timeline__marker {
+    width: 48px;
+    height: 48px;
+  }
+
+  .timeline__dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  .timeline__item {
+    gap: var(--sp-3);
+  }
+
+  .timeline__content {
+    padding: var(--sp-4);
+  }
+}
+
+/* Accesibilidad reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .valor-card:hover,
+  .timeline__content:hover,
+  .relato-media__frame:hover img {
+    transform: none !important;
+  }
+}
