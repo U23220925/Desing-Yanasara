@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prueba de la base · YANASARA TERMALES</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .demo h2 { font-size: var(--fs-h3); margin-top: var(--sp-8); padding-bottom: var(--sp-2); border-bottom: 1px solid var(--color-border-soft); }
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--sp-3); }
+    .swatch { padding: var(--sp-4); border-radius: var(--r-sm); font-size: var(--fs-small); border: 1px solid var(--color-border-soft); min-height: 84px; display: flex; align-items: flex-end; }
+    .row { display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: flex-end; margin-top: var(--sp-4); }
+    .row > .field { width: 260px; }
+  </style>
+</head>
+<body data-page="">
+  <div id="site-header" data-component="header"></div>
+  <main id="contenido" class="demo">
+    <div class="container" style="padding-bottom: var(--sp-9)">
+      <p class="eyebrow">Ronda 0 · Verificación</p>
+      <h1>Prueba de la base compartida</h1>
+      <p class="lead">Esta página solo sirve para comprobar que tokens, componentes, estado y animaciones funcionan. No es parte del sitio final.</p>
+
+      <h2>Tipografía y color</h2>
+      <h1 style="font-size:var(--fs-h1)">Título h1 · Montserrat</h1><h2 style="border:0;margin:0">Título h2</h2><h3>Título h3</h3><p>Texto de lectura en Inter con la longitud de línea limitada para que se lea con comodidad.</p>
+      <div class="swatches" id="swatches"></div>
+
+      <h2>1 · Botones</h2>
+      <div class="row">
+        <button class="btn btn--primary">Primario</button><button class="btn btn--secondary">Secundario</button><button class="btn btn--outline">Contorno</button>
+        <button class="btn btn--text">Texto</button><button class="btn btn--primary" disabled>Deshabilitado</button>
+        <button class="btn btn--secondary" id="btn-load">Cargando al clic</button>
+        <span style="background:var(--color-primary);padding:var(--sp-3);border-radius:var(--r-sm)"><button class="btn btn--light">Sobre foto</button></span>
+      </div>
+
+      <h2>2 · Formularios</h2>
+      <div class="row">
+        <div class="field"><label class="field__label" for="n">Nombres <span class="req">*</span></label><input class="input" id="n" placeholder="Valeria"><span class="field__error"></span></div>
+        <div class="field" id="f-err"><label class="field__label" for="c">Correo <span class="req">*</span></label><input class="input" id="c" value="correo-no-valido"><span class="field__error">Escribe un correo válido, por ejemplo nombre@correo.com</span></div>
+        <div class="field"><label class="field__label" for="d">Tipo de documento</label><select class="select" id="d"><option>DNI</option><option>Pasaporte</option></select></div>
+      </div>
+      <div class="row">
+        <label class="check"><input type="checkbox" checked><span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span><span class="check__label">Termales</span></label>
+        <label class="check"><input type="checkbox"><span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span><span class="check__label">Recreativo</span></label>
+        <label class="radio"><input type="radio" name="r" checked><span class="radio__dot"></span><span class="radio__label">Opción A</span></label>
+        <label class="radio"><input type="radio" name="r"><span class="radio__dot"></span><span class="radio__label">Opción B</span></label>
+        <div class="qty" id="qty" aria-label="Adultos"><button type="button" data-qty="-1" aria-label="Menos">−</button><output>2</output><button type="button" data-qty="1" aria-label="Más">+</button></div>
+        <div style="width:260px"><div class="range" id="range"><i class="range__track"></i><i class="range__fill"></i><input type="range" min="0" max="30" value="0" aria-label="Precio mínimo"><input type="range" min="0" max="30" value="30" aria-label="Precio máximo"></div><p class="small muted" id="range-out" style="margin:0">S/ 0 – S/ 30</p></div>
+      </div>
+
+      <h2>3 · Navegación (indicador de pasos)</h2>
+      <ol class="steps" style="max-width:520px">
+        <li class="steps__item is-done"><span class="steps__dot"><span class="steps__num">1</span><svg class="steps__check" viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span><span class="steps__label">Experiencia y fecha</span></li>
+        <li class="steps__item is-current"><span class="steps__dot"><span class="steps__num">2</span><svg class="steps__check" viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span><span class="steps__label">Datos del visitante</span></li>
+        <li class="steps__item"><span class="steps__dot"><span class="steps__num">3</span><svg class="steps__check" viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span><span class="steps__label">Confirmación</span></li>
+      </ol>
+
+      <h2>4 · Tarjetas (los botones "Agregar" ya funcionan)</h2>
+      <div class="grid grid--3" id="cards" style="margin-top:var(--sp-4)"></div>
+      <div class="summary-bar" style="margin-top:var(--sp-5)"><div class="summary-bar__item"><span class="summary-bar__label">Selección</span><span class="summary-bar__value" id="sb-count">0 servicios</span></div><div class="summary-bar__item summary-bar__item--grow"><span class="summary-bar__label">Servicios elegidos</span><span class="summary-bar__names" id="sb-names">Aún no has elegido servicios.</span></div><div class="summary-bar__item"><span class="summary-bar__label">Subtotal ilustrativo</span><span class="summary-bar__value" id="sb-total">S/ 0</span></div><a class="btn btn--primary" href="#">Continuar con la reserva</a></div>
+
+      <h2>5 · Alertas</h2>
+      <div class="row">
+        <button class="btn btn--outline btn--sm" data-toast="success">Toast éxito</button><button class="btn btn--outline btn--sm" data-toast="error">Toast error</button>
+        <button class="btn btn--outline btn--sm" data-toast="warning">Toast aviso</button><button class="btn btn--outline btn--sm" data-toast="info">Toast info</button>
+        <span class="badge badge--success">Confirmada</span><span class="badge badge--warning">Pendiente</span><span class="badge badge--error">Cancelada</span><span class="badge badge--neutral">Demo</span>
+      </div>
+      <div class="stack" style="margin-top:var(--sp-4)">
+        <div class="alert alert--info"><div><strong>Gestión demostrativa</strong>Los precios y fechas son referenciales.</div></div>
+        <div class="alert alert--error"><div><strong>No pudimos confirmar</strong>Completa los campos marcados con asterisco.</div></div>
+      </div>
+      <div style="margin-top:var(--sp-4)" id="empty"></div>
+    </div>
+  </main>
+  <div id="site-footer" data-component="footer"></div>
+  <script type="module" src="js/pages/_prueba-base.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- =====================================================================
+  PLANTILLA DE PÁGINA · copia este archivo y renómbralo (ej. servicios.html)
+  1) Cambia <title> y data-page (inicio | servicios | tarifas | historia | ...)
+  2) Crea css/pages/NOMBRE.css y js/pages/NOMBRE.js (empieza con: import '../main.js';)
+  3) Si la página está dentro de /admin, usa data-root="../" y rutas ../css, ../js
+  ===================================================================== -->
+<html lang="es" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plantilla · YANASARA TERMALES</title>
+  <meta name="description" content="YANASARA TERMALES · Prototipo académico de turismo de bienestar en Huamachuco.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <!-- <link rel="stylesheet" href="css/pages/NOMBRE.css"> -->
+</head>
+<body data-page="">
+  <div id="site-header" data-component="header"></div>
+
+  <main id="contenido">
+    <section class="section">
+      <div class="container">
+        <p class="eyebrow">Etiqueta</p>
+        <h1>Título de la página</h1>
+        <p class="lead">Aquí va el contenido de tu pantalla.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer" data-component="footer"></div>
+  <script type="module" src="js/pages/NOMBRE.js"></script>
+</body>
+</html>
