@@ -109,7 +109,7 @@
           <!-- Tarjeta 1: Circuito Termal -->
           <article class="card vive-card reveal">
             <div class="vive-card__media">
-              <img src="assets/img/Aguas Termales Templadas.png" alt="Aguas termales templadas de piedra" loading="lazy" width="600" height="400" onerror="this.parentElement.classList.add('is-missing')">
+              <img src="assets/img/Templada.png" alt="Aguas termales templadas de piedra" loading="lazy" width="600" height="400" onerror="this.parentElement.classList.add('is-missing')">
             </div>
             <div class="vive-card__body">
               <span class="eyebrow">Relajación esencial</span>
@@ -200,11 +200,12 @@
     </div>
 
     <!-- Sección: Presentación del lugar con 3 Valores -->
-    <section class="section valores-intro-section">
+    <!-- Sección: Presentación del lugar con 3 Valores -->
+    <section class="section valores-intro-section" aria-label="Nuestros pilares de bienestar">
       <div class="container">
         <div class="valores-intro-card card reveal">
           <div class="valores-intro-header text-center">
-            <p class="eyebrow">Pausa Consciente</p>
+            <span class="eyebrow">PAUSA CONSCIENTE</span>
             <h2>Un Refugio Diseñado para el Sosiego</h2>
             <p class="lead" style="margin-inline: auto;">
               Nuestra propuesta de turismo de bienestar se sostiene en tres pilares que respetan el ritmo de la montaña.
@@ -212,30 +213,47 @@
           </div>
 
           <div class="grid grid--3 valores-intro-grid">
-            <div class="valor-pill">
-              <span class="valor-pill__icon" aria-hidden="true">🌿</span>
-              <h3>Calma consciente</h3>
-              <p class="small muted">Desacelera el ritmo diario y contempla el entorno sin presiones de tiempo.</p>
-            </div>
-            <div class="valor-pill">
-              <span class="valor-pill__icon" aria-hidden="true">⛰️</span>
-              <h3>Respeto a la tierra</h3>
-              <p class="small muted">Preservamos el flujo de agua andina con arquitectura de piedra local.</p>
-            </div>
-            <div class="valor-pill">
-              <span class="valor-pill__icon" aria-hidden="true">🤝</span>
-              <h3>Hospitalidad sincera</h3>
-              <p class="small muted">Atención cálida, transparente y respetuosa con cada persona y familia.</p>
-            </div>
+            <!-- Pilar 1 -->
+            <article class="valor-pill">
+              <div class="valor-pill__media">
+                <img src="assets/img/pausa1.jpg" alt="Detalle de elementos naturales que evocan la calma" loading="lazy" width="400" height="300" onerror="this.parentElement.classList.add('is-missing')">
+              </div>
+              <div class="valor-pill__content">
+                <h3>Calma consciente</h3>
+                <p class="small muted">Desacelera el ritmo diario y contempla el entorno sin presiones de tiempo.</p>
+              </div>
+            </article>
+
+            <!-- Pilar 2 -->
+            <article class="valor-pill">
+              <div class="valor-pill__media">
+                <img src="assets/img/pausa2.jpg" alt="Arquitectura de piedra e integración con la tierra andina" loading="lazy" width="400" height="300" onerror="this.parentElement.classList.add('is-missing')">
+              </div>
+              <div class="valor-pill__content">
+                <h3>Respeto a la tierra</h3>
+                <p class="small muted">Preservamos el flujo de agua andina con arquitectura de piedra local.</p>
+              </div>
+            </article>
+
+            <!-- Pilar 3 -->
+            <article class="valor-pill">
+              <div class="valor-pill__media">
+                <img src="assets/img/pausa3.jpeg" alt="Experiencia cálida y hospitalidad en el entorno natural" loading="lazy" width="400" height="300" onerror="this.parentElement.classList.add('is-missing')">
+              </div>
+              <div class="valor-pill__content">
+                <h3>Hospitalidad sincera</h3>
+                <p class="small muted">Atención cálida, transparente y respetuosa con cada persona y familia.</p>
+              </div>
+            </article>
           </div>
 
-          <div class="text-center" style="margin-top: var(--sp-6);">
-            <a href="historia.html" class="btn btn--primary">Conocer nuestra historia</a>
+          <div class="text-center" style="margin-top: var(--sp-48, 48px);">
+            <a href="historia.html" class="btn btn--primary">CONOCER NUESTRA HISTORIA</a>
           </div>
         </div>
       </div>
     </section>
-  </main>
+
 
   <div id="site-footer" data-component="footer"></div>
   <script type="module" src="js/pages/inicio.js"></script>
