@@ -1,0 +1,124 @@
+/* =====================================================================
+   PÁGINA · 13 DESIGN SYSTEM & UI KIT
+   Muestras vivas de tokens, componentes, estados y principios de uso.
+   Todo utiliza exclusivamente variables definidas en css/tokens.css.
+   ===================================================================== */
+.ds-hero {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-soft);
+  padding-top: var(--sp-6);
+  padding-bottom: var(--sp-6);
+}
+
+.ds-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.ds-subnav a {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+.ds-subnav a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.ds-section {
+  padding-block: var(--sp-8);
+}
+
+.ds-card-inner {
+  padding: var(--sp-6);
+}
+
+/* Swatches de Color */
+.swatches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--sp-3);
+}
+
+.ds-swatch {
+  padding: var(--sp-4);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--color-border-soft);
+  min-height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: var(--shadow-sm);
+}
+
+.ds-swatch__name {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  display: block;
+}
+
+.ds-swatch__val {
+  font-size: 11px;
+  font-family: monospace;
+  opacity: 0.85;
+}
+
+/* Tipografía */
+.typo-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding-bottom: var(--sp-4);
+  margin-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.typo-label {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-accent-strong);
+}
+
+/* Botones */
+.ds-component-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  align-items: flex-end;
+}
+
+.ds-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.ds-label {
+  font-size: var(--fs-label);
+  color: var(--color-text-muted);
+}
+
+/* Formularios */
+.ds-form-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-4);
+}
+
+@media (max-width: 767px) {
+  .ds-form-demo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ds-card-inner {
+    padding: var(--sp-4);
+  }
+}

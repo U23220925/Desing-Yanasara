@@ -1,0 +1,384 @@
+<!doctype html>
+<!-- =====================================================================
+  YANASARA TERMALES · Pantalla 13: Design System & UI Kit
+  Documentación viva con tokens, componentes base, estados completos,
+  patrones de interfaz y guías de interacción.
+  ===================================================================== -->
+<html lang="es" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design System & UI Kit · YANASARA TERMALES</title>
+  <meta name="description" content="Guía de estilos, tokens de diseño y componentes vivos de Yanasara Termales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/design-system.css">
+</head>
+<body data-page="design-system">
+  <div id="site-header" data-component="header"></div>
+
+  <main id="contenido">
+    <!-- Hero del Design System -->
+    <header class="section section--tight ds-hero">
+      <div class="container">
+        <p class="eyebrow">Documentación Viva y Guía de Interfaz</p>
+        <h1 class="ds-hero__title">Design System & UI Kit</h1>
+        <p class="lead ds-hero__lead">
+          Tokens, componentes base en todos sus estados, patrones accesibles y principios de interacción de Yanasara Termales.
+        </p>
+        <nav class="ds-subnav" aria-label="Secciones del Design System">
+          <a href="#tokens">Tokens de Diseño</a>
+          <a href="#botones">1. Botones</a>
+          <a href="#formularios">2. Formularios</a>
+          <a href="#navegacion">3. Navegación</a>
+          <a href="#tarjetas">4. Tarjetas</a>
+          <a href="#alertas">5. Alertas</a>
+          <a href="#principios">Principios y WCAG</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- SECCIÓN: TOKENS DE DISEÑO -->
+    <section class="section ds-section" id="tokens">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Tokens Base (css/tokens.css)</p>
+          <h2>Paleta de Color y Superficies</h2>
+          <p class="lead">Garantizan contraste WCAG 2.1 AA (mínimo 4.5:1 en texto normal y 5.1:1 en botones).</p>
+        </div>
+
+        <div class="swatches-grid" id="swatches-container">
+          <!-- Inyectado por JS con los tokens de color -->
+        </div>
+
+        <div class="section-heading" style="margin-top: var(--sp-8);">
+          <p class="eyebrow">Escala Tipográfica</p>
+          <h2>Tipografía (Montserrat 600 e Inter)</h2>
+        </div>
+        <div class="card ds-card-inner">
+          <div class="typo-row">
+            <span class="typo-label">h1 (54 / 42 / 32 px)</span>
+            <span style="font-family: var(--font-display); font-size: var(--fs-h1); font-weight: 600; color: var(--color-primary); line-height: 1.15;">
+              DESCUBRE LA RELAJACIÓN
+            </span>
+          </div>
+          <div class="typo-row">
+            <span class="typo-label">h2 (42 / 36 / 28 px)</span>
+            <span style="font-family: var(--font-display); font-size: var(--fs-h2); font-weight: 600; color: var(--color-primary); line-height: 1.2;">
+              Nuestros Servicios Termales
+            </span>
+          </div>
+          <div class="typo-row">
+            <span class="typo-label">h3 (28 / 22 / 22 px)</span>
+            <span style="font-family: var(--font-display); font-size: var(--fs-h3); font-weight: 600; color: var(--color-primary);">
+              Circuito Termal Esencial
+            </span>
+          </div>
+          <div class="typo-row">
+            <span class="typo-label">Lectura (17 / 16 / 16 px)</span>
+            <span style="font-size: var(--fs-body); color: var(--color-text);">
+              Aguas templadas, pozas rústicas de piedra y descanso consciente en el corazón de los Andes.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 1: BOTONES -->
+    <section class="section section--surface ds-section" id="botones">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">UI Kit · Categoría 1</p>
+          <h2>Botones y Estados Interactivos</h2>
+          <p class="lead">Altura mínima táctil de 48 px, mayúsculas con espaciado de 0.8 px y escala 0.98 al presionar.</p>
+        </div>
+
+        <div class="card ds-card-inner">
+          <div class="ds-component-grid">
+            <div class="ds-item">
+              <span class="ds-label">Primario (Terracota)</span>
+              <button class="btn btn--primary">Reservar ahora</button>
+            </div>
+            <div class="ds-item">
+              <span class="ds-label">Secundario (Verde bosque)</span>
+              <button class="btn btn--secondary">Explorar catálogo</button>
+            </div>
+            <div class="ds-item">
+              <span class="ds-label">Contorno (Outline)</span>
+              <button class="btn btn--outline">Ver detalles</button>
+            </div>
+            <div class="ds-item">
+              <span class="ds-label">Texto</span>
+              <button class="btn btn--text">Limpiar filtros</button>
+            </div>
+            <div class="ds-item">
+              <span class="ds-label">Sobre fondo oscuro (Light)</span>
+              <div style="background: var(--color-primary); padding: var(--sp-3); border-radius: var(--r-sm);">
+                <button class="btn btn--light">Explorar servicios</button>
+              </div>
+            </div>
+            <div class="ds-item">
+              <span class="ds-label">Deshabilitado</span>
+              <button class="btn btn--primary" disabled>Deshabilitado</button>
+            </div>
+            <div class="ds-item">
+              <span class="ds-label">Estado Cargando (Spinner)</span>
+              <button class="btn btn--secondary is-loading" aria-label="Cargando">Cargando</button>
+            </div>
+            <div class="ds-item">
+              <span class="ds-label">Estado Agregado</span>
+              <button class="btn btn--secondary is-added">✓ Agregado</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: FORMULARIOS -->
+    <section class="section ds-section" id="formularios">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">UI Kit · Categoría 2</p>
+          <h2>Controles de Formulario</h2>
+          <p class="lead">Campos de texto, select, casillas, radio, stepper de cantidad y control dual de precio.</p>
+        </div>
+
+        <div class="card ds-card-inner">
+          <div class="ds-form-demo-grid">
+            <!-- Campo Normal -->
+            <div class="field">
+              <label class="field__label" for="ds-input-normal">Campo de texto normal <span class="req">*</span></label>
+              <input class="input" id="ds-input-normal" placeholder="Ejemplo: Valeria Rojas">
+            </div>
+
+            <!-- Campo con Error (Shake) -->
+            <div class="field is-invalid">
+              <label class="field__label" for="ds-input-error">Campo con error <span class="req">*</span></label>
+              <input class="input" id="ds-input-error" value="correo-invalido" aria-invalid="true">
+              <span class="field__error">Escribe un correo válido, por ejemplo nombre@correo.com</span>
+            </div>
+
+            <!-- Select -->
+            <div class="field">
+              <label class="field__label" for="ds-select">Selector (Dropdown)</label>
+              <select class="select" id="ds-select">
+                <option>DNI (Documento Nacional)</option>
+                <option>Pasaporte</option>
+                <option>Carné de Extranjería</option>
+              </select>
+            </div>
+
+            <!-- Stepper de Cantidad -->
+            <div class="field">
+              <span class="field__label">Stepper de cantidad (Adultos)</span>
+              <div class="qty" id="ds-qty" aria-label="Cantidad de adultos">
+                <button type="button" data-qty="-1" aria-label="Menos">−</button>
+                <output>2</output>
+                <button type="button" data-qty="1" aria-label="Más">+</button>
+              </div>
+            </div>
+
+            <!-- Checkbox con animación SVG -->
+            <div class="field">
+              <span class="field__label">Casilla de verificación (Check)</span>
+              <div class="cluster">
+                <label class="check">
+                  <input type="checkbox" checked>
+                  <span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+                  <span class="check__label">Termales (Marcado)</span>
+                </label>
+                <label class="check">
+                  <input type="checkbox">
+                  <span class="check__box"><svg viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+                  <span class="check__label">Recreativo</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Radio Button -->
+            <div class="field">
+              <span class="field__label">Botones de opción (Radio)</span>
+              <div class="cluster">
+                <label class="radio">
+                  <input type="radio" name="ds-radio" checked>
+                  <span class="radio__dot"></span>
+                  <span class="radio__label">Turno mañana</span>
+                </label>
+                <label class="radio">
+                  <input type="radio" name="ds-radio">
+                  <span class="radio__dot"></span>
+                  <span class="radio__label">Turno tarde</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Rango de Precio Dual -->
+            <div class="field" style="grid-column: 1 / -1;">
+              <span class="field__label">Control de rango de precio (S/ 0 a S/ 30)</span>
+              <div class="range" id="ds-range" style="max-width: 420px;">
+                <i class="range__track"></i><i class="range__fill"></i>
+                <input type="range" min="0" max="30" value="0" aria-label="Precio mínimo">
+                <input type="range" min="0" max="30" value="30" aria-label="Precio máximo">
+              </div>
+              <p class="small muted" id="ds-range-out" style="margin-top: var(--sp-2);">S/ 0 – S/ 30</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: NAVEGACIÓN -->
+    <section class="section section--surface ds-section" id="navegacion">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">UI Kit · Categoría 3</p>
+          <h2>Navegación e Indicador de Pasos</h2>
+          <p class="lead">Stepper de reserva con línea conectora que se llena al avanzar (500 ms ease-out).</p>
+        </div>
+
+        <div class="card ds-card-inner">
+          <ol class="steps" style="max-width: 600px; margin-inline: auto;">
+            <li class="steps__item is-done">
+              <span class="steps__dot"><span class="steps__num">1</span><svg class="steps__check" viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+              <span class="steps__label">Experiencia y fecha</span>
+            </li>
+            <li class="steps__item is-current">
+              <span class="steps__dot"><span class="steps__num">2</span><svg class="steps__check" viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+              <span class="steps__label">Datos del visitante</span>
+            </li>
+            <li class="steps__item">
+              <span class="steps__dot"><span class="steps__num">3</span><svg class="steps__check" viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5"/></svg></span>
+              <span class="steps__label">Confirmación</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: TARJETAS -->
+    <section class="section ds-section" id="tarjetas">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">UI Kit · Categoría 4</p>
+          <h2>Tarjetas y Resúmenes</h2>
+          <p class="lead">Tarjetas de servicio con estado agregado, plan de tarifa y barra flotante.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <!-- Tarjeta normal de servicio -->
+          <article class="card service-card">
+            <div class="service-card__media">
+              <img src="assets/img/piscina-olimpica.jpg" alt="Piscina olímpica" loading="lazy" width="400" height="300" onerror="this.parentElement.classList.add('is-missing')">
+              <span class="service-card__tag" aria-hidden="true">✓ AGREGADO</span>
+            </div>
+            <div class="service-card__body">
+              <p class="service-card__cat">Termales</p>
+              <h3 class="service-card__title">Piscina olímpica</h3>
+              <p class="service-card__desc">Piscina amplia de agua templada para nadar o flotar un rato.</p>
+              <div class="price"><span class="price__value">S/ 10</span><span class="price__label">Precio referencial · por persona</span></div>
+              <div class="service-card__actions">
+                <button type="button" class="btn btn--secondary btn--block">Agregar a mi reserva</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tarjeta con estado is-added -->
+          <article class="card service-card is-added">
+            <div class="service-card__media">
+              <img src="assets/img/pozas-privadas.jpg" alt="Pozas privadas" loading="lazy" width="400" height="300" onerror="this.parentElement.classList.add('is-missing')">
+              <span class="service-card__tag" aria-hidden="true" style="opacity: 1; transform: none;">✓ AGREGADO</span>
+            </div>
+            <div class="service-card__body">
+              <p class="service-card__cat">Termales</p>
+              <h3 class="service-card__title">Pozas privadas</h3>
+              <p class="service-card__desc">Espacios reservados para parejas o familias entre vegetación andina.</p>
+              <div class="price"><span class="price__value">S/ 12</span><span class="price__label">Precio referencial · por persona</span></div>
+              <div class="service-card__actions">
+                <button type="button" class="btn btn--secondary btn--block is-added">✓ Agregado</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Resumen de costos -->
+          <div class="card" style="padding: var(--sp-5);">
+            <p class="eyebrow">Resumen Tu Experiencia</p>
+            <div class="kv"><span class="kv__k">Servicios elegidos:</span><span class="kv__v">2</span></div>
+            <div class="kv"><span class="kv__k">Visitantes:</span><span class="kv__v">2 adultos</span></div>
+            <div class="kv kv--total"><span class="kv__k">Total referencial:</span><span class="kv__v">S/ 22</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: ALERTAS -->
+    <section class="section section--surface ds-section" id="alertas">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">UI Kit · Categoría 5</p>
+          <h2>Alertas, Toasts e Insignias</h2>
+          <p class="lead">Disparadores interactivos de avisos flotantes (toasts) y mensajes en línea.</p>
+        </div>
+
+        <div class="card ds-card-inner">
+          <!-- Disparadores de Toast -->
+          <div class="cluster" style="margin-bottom: var(--sp-5);">
+            <button class="btn btn--outline btn--sm" data-toast-trigger="success">Toast Éxito</button>
+            <button class="btn btn--outline btn--sm" data-toast-trigger="error">Toast Error</button>
+            <button class="btn btn--outline btn--sm" data-toast-trigger="warning">Toast Aviso</button>
+            <button class="btn btn--outline btn--sm" data-toast-trigger="info">Toast Info</button>
+          </div>
+
+          <!-- Insignias -->
+          <div class="cluster" style="margin-bottom: var(--sp-5);">
+            <span class="badge badge--success">Confirmada</span>
+            <span class="badge badge--warning">Pendiente</span>
+            <span class="badge badge--error">Cancelada</span>
+            <span class="badge badge--neutral">Demo</span>
+          </div>
+
+          <!-- Alertas en línea -->
+          <div class="stack">
+            <div class="alert alert--info">
+              <div><strong>Aviso referencial:</strong> Todos los precios y servicios mostrados son demostrativos para fines académicos.</div>
+            </div>
+            <div class="alert alert--error">
+              <div><strong>Error de validación:</strong> Por favor completa los campos marcados con asterisco (*).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: PRINCIPIOS Y WCAG -->
+    <section class="section ds-section" id="principios">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Criterios de Calidad</p>
+          <h2>Principios de Diseño y Accesibilidad</h2>
+        </div>
+        <div class="grid grid--3">
+          <div class="card" style="padding: var(--sp-5);">
+            <h3>Contraste WCAG 2.1 AA</h3>
+            <p class="small muted">Ningún texto posee contraste menor a 4.5:1. Los botones con texto blanco usan terracota reforzado (#A25A3E, 5.1:1).</p>
+          </div>
+          <div class="card" style="padding: var(--sp-5);">
+            <h3>Navegación por Teclado</h3>
+            <p class="small muted">Todo componente interactivo cuenta con foco visible (`:focus-visible`), roles ARIA semánticos y soporte para la tecla Escape.</p>
+          </div>
+          <div class="card" style="padding: var(--sp-5);">
+            <h3>Reducción de Movimiento</h3>
+            <p class="small muted">Todas las animaciones respetan `prefers-reduced-motion: reduce`, reduciendo los tiempos a 1 ms para usuarios sensibles.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer" data-component="footer"></div>
+  <script type="module" src="js/pages/design-system.js"></script>
+</body>
+</html>
