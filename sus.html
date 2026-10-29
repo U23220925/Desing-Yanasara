@@ -1,0 +1,218 @@
+<!doctype html>
+<!-- =====================================================================
+  YANASARA TERMALES · Pantalla SUS: Encuesta y Modo Prueba
+  10 preguntas estándar SUS (escala 1 a 5), cálculo automático (0-100),
+  interpretación y modo prueba opcional (?test=1) con cronómetro, clics y CSV.
+  ===================================================================== -->
+<html lang="es" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Encuesta de Usabilidad SUS · YANASARA TERMALES</title>
+  <meta name="description" content="Encuesta estandarizada de usabilidad SUS y protocolo de pruebas con tareas para el prototipo de Yanasara Termales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/sus.css">
+</head>
+<body data-page="sus">
+  <div id="site-header" data-component="header"></div>
+
+  <main id="contenido">
+    <!-- Hero / Encabezado -->
+    <header class="section section--tight sus-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Miga de pan">
+          <a class="back-link" href="index.html">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13 5 8l5-5"/></svg>
+            Volver al inicio
+          </a>
+        </nav>
+        <div class="sus-hero__inner">
+          <div>
+            <p class="eyebrow">Evaluación y Métricas de Experiencia</p>
+            <h1>Encuesta SUS y Modo Prueba</h1>
+            <p class="lead sus-hero__lead">
+              Instrumento estandarizado de usabilidad (System Usability Scale) con cálculo automático e interpretación, más entorno de cronometraje de tareas.
+            </p>
+          </div>
+          <div class="sus-hero__actions">
+            <button type="button" class="btn btn--outline" id="btn-toggle-testmode">
+              Activar Modo Prueba (?test=1)
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MODO PRUEBA DE TAREAS (Se activa con ?test=1 o con el botón) -->
+    <section class="section section--surface testmode-section" id="testmode-section" hidden aria-label="Protocolo de pruebas de tareas">
+      <div class="container">
+        <div class="card testmode-card reveal">
+          <div class="testmode-card__header">
+            <div>
+              <span class="badge badge--success">Modo Prueba Activo</span>
+              <h2 style="font-size: var(--fs-h3); margin-top: var(--sp-2); margin-bottom: var(--sp-1);">
+                Protocolo de Pruebas de Usabilidad con Tareas
+              </h2>
+              <p class="muted small" style="margin: 0;">
+                Ejecuta las tareas guiadas. El sistema medirá el tiempo transcurrido y contabilizará los clics realizados en la pantalla.
+              </p>
+            </div>
+            <div class="testmode-export-wrapper">
+              <button type="button" class="btn btn--primary btn--sm" id="btn-export-csv">
+                Exportar resultados (CSV)
+              </button>
+            </div>
+          </div>
+
+          <!-- Métricas globales del test -->
+          <div class="testmode-metrics-bar">
+            <div class="testmode-metric">
+              <span class="testmode-metric__label">Clics registrados</span>
+              <span class="testmode-metric__val" id="metric-clicks">0</span>
+            </div>
+            <div class="testmode-metric">
+              <span class="testmode-metric__label">Tarea en curso</span>
+              <span class="testmode-metric__val" id="metric-active-task">Ninguna</span>
+            </div>
+            <div class="testmode-metric">
+              <span class="testmode-metric__label">Cronómetro actual</span>
+              <span class="testmode-metric__val testmode-metric__val--time" id="metric-timer">00:00</span>
+            </div>
+          </div>
+
+          <!-- Lista de 4 Tareas estándar de prueba -->
+          <div class="testmode-tasks-list" id="testmode-tasks-list">
+            <!-- Tarea 1 -->
+            <div class="task-item" data-task-id="1">
+              <div class="task-item__info">
+                <span class="task-item__num">Tarea 1</span>
+                <h3 class="task-item__title">Explorar catálogo y filtrar por aguas termales (precio ≤ S/ 10)</h3>
+                <p class="small muted">Navega a Servicios, aplica el filtro de tipo "Termales" y ajusta el rango de precio.</p>
+              </div>
+              <div class="task-item__status">
+                <span class="task-item__time" id="task-time-1">--:--</span>
+                <button type="button" class="btn btn--outline btn--sm btn-task-toggle" data-task="1">Iniciar</button>
+              </div>
+            </div>
+
+            <!-- Tarea 2 -->
+            <div class="task-item" data-task-id="2">
+              <div class="task-item__info">
+                <span class="task-item__num">Tarea 2</span>
+                <h3 class="task-item__title">Agregar 2 servicios a la reserva y revisar el carrito</h3>
+                <p class="small muted">Haz clic en "Agregar a mi reserva" en dos tarjetas y comprueba el contador del encabezado.</p>
+              </div>
+              <div class="task-item__status">
+                <span class="task-item__time" id="task-time-2">--:--</span>
+                <button type="button" class="btn btn--outline btn--sm btn-task-toggle" data-task="2">Iniciar</button>
+              </div>
+            </div>
+
+            <!-- Tarea 3 -->
+            <div class="task-item" data-task-id="3">
+              <div class="task-item__info">
+                <span class="task-item__num">Tarea 3</span>
+                <h3 class="task-item__title">Seleccionar el plan 'Circuito termal' e iniciar la reserva</h3>
+                <p class="small muted">Dirígete a Tarifas y pulsa "Reservar plan" para comprobar la precarga en el Paso 1.</p>
+              </div>
+              <div class="task-item__status">
+                <span class="task-item__time" id="task-time-3">--:--</span>
+                <button type="button" class="btn btn--outline btn--sm btn-task-toggle" data-task="3">Iniciar</button>
+              </div>
+            </div>
+
+            <!-- Tarea 4 -->
+            <div class="task-item" data-task-id="4">
+              <div class="task-item__info">
+                <span class="task-item__num">Tarea 4</span>
+                <h3 class="task-item__title">Ingresar al panel administrativo y consultar reservas</h3>
+                <p class="small muted">Accede a Administración con las credenciales demo y verifica la tabla y los indicadores.</p>
+              </div>
+              <div class="task-item__status">
+                <span class="task-item__time" id="task-time-4">--:--</span>
+                <button type="button" class="btn btn--outline btn--sm btn-task-toggle" data-task="4">Iniciar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE LAS 10 PREGUNTAS SUS -->
+    <section class="section sus-form-section">
+      <div class="container" style="max-width: 860px;">
+        <div class="section-heading">
+          <p class="eyebrow">Escala de Usabilidad del Sistema (Brooke, 1996)</p>
+          <h2>Cuestionario de Evaluación</h2>
+          <p class="lead">
+            Por favor, responde a cada afirmación seleccionando tu grado de acuerdo del 1 al 5.
+          </p>
+          <div class="sus-legend">
+            <span><strong>1:</strong> Totalmente en desacuerdo</span>
+            <span><strong>5:</strong> Totalmente de acuerdo</span>
+          </div>
+        </div>
+
+        <form id="sus-form" class="sus-form">
+          <div id="sus-questions-container" class="sus-questions">
+            <!-- 10 preguntas inyectadas dinámicamente -->
+          </div>
+
+          <div class="sus-form-actions">
+            <button type="submit" class="btn btn--primary" id="btn-calc-sus">
+              Calcular Puntaje SUS
+            </button>
+            <button type="button" class="btn btn--outline" id="btn-fill-sus-demo">
+              Llenar ejemplo (Puntaje alto)
+            </button>
+            <button type="button" class="btn btn--text" id="btn-reset-sus">
+              Reiniciar respuestas
+            </button>
+          </div>
+        </form>
+
+        <!-- PANEL DE RESULTADOS DEL PUNTAJE SUS -->
+        <div class="card sus-results-card reveal" id="sus-results-card" hidden>
+          <div class="sus-results-inner">
+            <div class="sus-results-score-box">
+              <span class="eyebrow">Puntaje Final SUS</span>
+              <div class="sus-score-display">
+                <span class="sus-score-number" id="sus-score-val">0</span>
+                <span class="sus-score-max">/ 100</span>
+              </div>
+              <div id="sus-grade-badge"></div>
+            </div>
+
+            <div class="sus-results-interpretation">
+              <h3 id="sus-interp-title">Interpretación de Usabilidad</h3>
+              <p id="sus-interp-desc" class="muted">
+                Calculando interpretación según los estándares de Sauro & Lewis...
+              </p>
+
+              <!-- Barra de escala visual -->
+              <div class="sus-bar-wrapper" aria-label="Gráfico de escala de puntaje">
+                <div class="sus-bar-track">
+                  <div class="sus-bar-fill" id="sus-bar-fill" style="width: 0%;"></div>
+                </div>
+                <div class="sus-bar-labels">
+                  <span>0 (Deficiente)</span>
+                  <span style="left: 68%;">68 (Promedio)</span>
+                  <span>100 (Excelente)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer" data-component="footer"></div>
+  <script type="module" src="js/pages/sus.js"></script>
+</body>
+</html>

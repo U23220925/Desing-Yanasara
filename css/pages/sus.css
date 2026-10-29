@@ -1,0 +1,347 @@
+/* =====================================================================
+   PÁGINA · SUS Y MODO PRUEBA
+   Cuestionario estándar de 10 preguntas, escala 1 a 5, cálculo automático,
+   indicador visual de puntaje y modo prueba de tareas con cronómetro.
+   Todo utiliza exclusivamente variables definidas en css/tokens.css.
+   ===================================================================== */
+
+/* ---------------- Hero / Encabezado ---------------- */
+.sus-hero {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-soft);
+  padding-top: var(--sp-6);
+  padding-bottom: var(--sp-6);
+}
+
+.sus-hero .back-link {
+  margin-bottom: var(--sp-3);
+}
+
+.sus-hero__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+
+.sus-hero__lead {
+  max-width: 65ch;
+  margin-bottom: 0;
+}
+
+/* ---------------- Modo Prueba de Tareas (?test=1) ---------------- */
+.testmode-section {
+  padding-block: var(--sp-6);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.testmode-card {
+  padding: var(--sp-6);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-secondary);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.testmode-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-5);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.testmode-metrics-bar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-4);
+  padding: var(--sp-4);
+  background: var(--color-bg);
+  border-radius: var(--r-sm);
+  margin-bottom: var(--sp-5);
+}
+
+.testmode-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.testmode-metric__label {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.testmode-metric__val {
+  font-size: var(--fs-h3);
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  color: var(--color-primary);
+}
+
+.testmode-metric__val--time {
+  color: var(--color-accent-strong);
+  font-family: monospace;
+}
+
+.testmode-tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--r-sm);
+  transition: border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+
+.task-item.is-running {
+  border-color: var(--color-accent);
+  background: var(--color-warning-bg);
+}
+
+.task-item.is-completed {
+  border-color: var(--color-secondary);
+  background: var(--color-success-bg);
+}
+
+.task-item__num {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-accent-strong);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.task-item__title {
+  font-size: var(--fs-ui);
+  margin-bottom: 2px;
+  color: var(--color-primary);
+}
+
+.task-item__status {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-shrink: 0;
+}
+
+.task-item__time {
+  font-family: monospace;
+  font-size: var(--fs-ui);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+/* ---------------- Cuestionario de 10 Preguntas SUS ---------------- */
+.sus-form-section {
+  padding-block: var(--sp-8);
+}
+
+.sus-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  margin-top: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--r-sm);
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}
+
+.sus-questions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+}
+
+.sus-q-card {
+  padding: var(--sp-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.sus-q-card:hover {
+  border-color: var(--color-secondary);
+}
+
+.sus-q-text {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.sus-q-scale {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.sus-opt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.sus-opt input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.sus-opt__val {
+  font-size: var(--fs-ui);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.sus-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--color-border-soft);
+}
+
+/* ---------------- Tarjeta de Resultados SUS ---------------- */
+.sus-results-card {
+  margin-top: var(--sp-7);
+  padding: var(--sp-6);
+  background: var(--color-surface);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-md);
+}
+
+.sus-results-inner {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--sp-6);
+  align-items: center;
+}
+
+.sus-results-score-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-5);
+  background: var(--color-bg);
+  border-radius: var(--r-sm);
+  text-align: center;
+}
+
+.sus-score-display {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-1);
+  margin-block: var(--sp-2);
+}
+
+.sus-score-number {
+  font-size: var(--fs-h1);
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.sus-score-max {
+  font-size: var(--fs-h4);
+  color: var(--color-text-muted);
+}
+
+.sus-results-interpretation h3 {
+  margin-bottom: var(--sp-2);
+  color: var(--color-primary);
+}
+
+.sus-bar-wrapper {
+  margin-top: var(--sp-5);
+}
+
+.sus-bar-track {
+  height: 12px;
+  background: var(--color-surface-alt);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+  position: relative;
+}
+
+.sus-bar-fill {
+  height: 100%;
+  background: var(--color-secondary);
+  border-radius: var(--r-pill);
+  transition: width 800ms var(--ease-out);
+}
+
+.sus-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--sp-2);
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  position: relative;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 767px) {
+  .testmode-metrics-bar {
+    grid-template-columns: 1fr;
+    gap: var(--sp-3);
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-item__status {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: var(--sp-2);
+  }
+
+  .sus-results-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .sus-form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
