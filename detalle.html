@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- =====================================================================
+  YANASARA TERMALES · Pantalla 03: Detalle del Servicio (detalle.html?id=)
+  Foto amplia, categoría, descripción detallada, tres datos clave
+  (horario, capacidad, recomendación), precio referencial, botón Agregar
+  y sección "Otros servicios". Si no existe id, muestra error 404.
+  ===================================================================== -->
+<html lang="es" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detalle de Servicio · YANASARA TERMALES</title>
+  <meta name="description" content="Información detallada sobre las pozas y piscinas de Yanasara Termales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/detalle.css">
+</head>
+<body data-page="detalle">
+  <div id="site-header" data-component="header"></div>
+
+  <main id="contenido">
+    <!-- Contenedor dinámico del servicio -->
+    <div id="service-detail-container">
+      <!-- Inyectado por JavaScript -->
+    </div>
+
+    <!-- Sección: Otros Servicios -->
+    <section class="section section--surface otros-servicios-section" id="otros-servicios-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Continúa explorando</p>
+          <h2>Otros Servicios</h2>
+          <p class="lead">Descubre más opciones para complementar tu estancia en Yanasara.</p>
+        </div>
+        <div class="grid grid--3 otros-servicios-grid" id="otros-servicios-grid">
+          <!-- Inyectado por JavaScript -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer" data-component="footer"></div>
+  <script type="module" src="js/pages/detalle.js"></script>
+</body>
+</html>

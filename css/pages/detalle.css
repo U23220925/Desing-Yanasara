@@ -1,0 +1,178 @@
+/* =====================================================================
+   PÁGINA · 03 DETALLE DEL SERVICIO
+   Foto amplia, tres datos clave, descripción del mismo servicio,
+   precio referencial, botón Agregar a mi reserva y otros servicios.
+   Todo utiliza exclusivamente variables definidas en css/tokens.css.
+   ===================================================================== */
+
+.detalle-hero {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-soft);
+  padding-top: var(--sp-5);
+  padding-bottom: var(--sp-6);
+}
+
+.detalle-hero .back-link {
+  margin-bottom: var(--sp-3);
+}
+
+.detalle-main-section {
+  padding-block: var(--sp-7);
+}
+
+.detalle-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--sp-7);
+  align-items: flex-start;
+}
+
+/* Foto amplia */
+.detalle-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1.5px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, #c4d6c3, var(--color-surface-alt));
+  margin-bottom: var(--sp-6);
+}
+
+.detalle-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detalle-media.is-missing img {
+  display: none;
+}
+
+.detalle-tag-added {
+  position: absolute;
+  top: var(--sp-4);
+  left: var(--sp-4);
+  padding: 6px 14px;
+  background: var(--color-primary);
+  color: var(--color-on-dark);
+  border-radius: var(--r-pill);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-spring);
+}
+
+.is-added .detalle-tag-added {
+  opacity: 1;
+  transform: none;
+}
+
+/* Contenido y tres datos */
+.detalle-cat {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--color-accent-strong);
+  margin-bottom: var(--sp-2);
+}
+
+.detalle-title {
+  font-size: var(--fs-h1);
+  color: var(--color-primary);
+  margin-bottom: var(--sp-4);
+}
+
+.detalle-desc {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-text);
+  margin-bottom: var(--sp-6);
+}
+
+/* Tres datos clave */
+.detalle-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+}
+
+.detalle-fact-card {
+  padding: var(--sp-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.detalle-fact-label {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.detalle-fact-val {
+  font-size: var(--fs-ui);
+  font-weight: var(--fw-medium);
+  color: var(--color-primary);
+}
+
+/* Tarjeta lateral de reserva / precio */
+.detalle-card-booking {
+  position: sticky;
+  top: calc(var(--header-h) + var(--sp-5));
+  padding: var(--sp-6);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-md);
+}
+
+.detalle-card-booking__price {
+  margin-bottom: var(--sp-4);
+  padding-bottom: var(--sp-4);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.detalle-card-booking__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+}
+
+/* Sección Otros Servicios */
+.otros-servicios-section {
+  padding-block: var(--sp-8);
+  border-top: 1px solid var(--color-border-soft);
+}
+
+/* Responsive */
+@media (max-width: 1279px) {
+  .detalle-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-6);
+  }
+
+  .detalle-card-booking {
+    position: static;
+  }
+}
+
+@media (max-width: 767px) {
+  .detalle-facts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detalle-title {
+    font-size: var(--fs-h2);
+  }
+}

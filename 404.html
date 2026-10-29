@@ -1,0 +1,68 @@
+<!doctype html>
+<!-- =====================================================================
+  YANASARA TERMALES · Página 404 - No Encontrado
+  Página de error con botón de regreso al inicio.
+  ===================================================================== -->
+<html lang="es" data-root="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página no encontrada (404) · YANASARA TERMALES</title>
+  <meta name="description" content="La página que buscas no existe o ha sido movida.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .error-page-main {
+      min-height: calc(100vh - var(--header-h) - 200px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-block: var(--sp-9);
+      text-align: center;
+    }
+    .error-card {
+      max-width: 580px;
+      padding: var(--sp-8) var(--sp-6);
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow-md);
+    }
+    .error-code {
+      font-size: 84px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: var(--sp-2);
+    }
+  </style>
+</head>
+<body data-page="404">
+  <div id="site-header" data-component="header"></div>
+
+  <main id="contenido" class="error-page-main">
+    <div class="container" style="display: flex; justify-content: center;">
+      <div class="error-card reveal">
+        <div class="error-code">404</div>
+        <p class="eyebrow">Página o recurso no encontrado</p>
+        <h1 style="font-size: var(--fs-h2); margin-bottom: var(--sp-3);">Nos hemos desviado del camino</h1>
+        <p class="lead" style="margin-inline: auto; margin-bottom: var(--sp-6);">
+          La página o el servicio que estás buscando no existe o ha sido reubicado. Te invitamos a regresar al inicio o explorar nuestro catálogo.
+        </p>
+        <div class="cluster" style="justify-content: center;">
+          <a class="btn btn--primary" href="index.html">Volver al inicio</a>
+          <a class="btn btn--outline" href="servicios.html">Ver servicios</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer" data-component="footer"></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
