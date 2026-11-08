@@ -1,7 +1,5 @@
 # Desing-Yanasara
 
-Actúa como desarrollador front-end senior y diseñador de interfaces. Construye el prototipo funcional de alta fidelidad de la web de YANASARA TERMALES (Baños Termales de Yanasara, Huamachuco, La Libertad, Perú): turismo de bienestar y reservas. Es un proyecto académico: todos los precios, fechas y datos son demostrativos y deben decirse "referenciales"; no hay pagos reales.
-
 STACK
 - HTML5 semántico + CSS3 (variables CSS) + JavaScript vanilla (módulos ES), sin frameworks ni librerías. Multipágina estática, publicable en GitHub Pages.
 - Mobile-first y 100% responsive. Se evaluará con F12 (modo dispositivo) en 1440 px (PC), 768 px (Tablet) y 390 px (móvil). Breakpoints: móvil ≤ 767, tablet 768–1279, PC ≥ 1280.
